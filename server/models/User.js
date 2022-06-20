@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const favoriteSchema = require('./Favorite');
+const FavoriteSchema = require('./Favorite');
 
 const userSchema = new Schema(
     {
@@ -20,7 +20,7 @@ const userSchema = new Schema(
         type: String,
         required: true,
       },
-      favorites: [favoriteSchema],
+      favorites: [FavoriteSchema],
     },
     {
       toJSON: {
