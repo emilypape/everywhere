@@ -5,14 +5,17 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
         getSingleUser: async (parent, {username}) => {
-            return await User.findOne({username})
+            const userData = await User.findOne({username})
             .select('-__v -password')
             .populate('favorites')
+
+            return userData;
         },
         getAllUsers: async () => {
-            return await User.find({})
+            const userArray = await User.find({})
             .select('-__v -password')
             .populate('favorites')
+            return userArray;
         },
         me: async (parent, args, context) => {
             if (context.user) {
