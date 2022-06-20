@@ -1,94 +1,70 @@
-# Book it Belle
-![Unlicense badge](https://img.shields.io/badge/License-Unlicense-success)
-## Table of Contents
+# Getting Started with Create React App
 
-- [Description](#description)
-- [Contributors](#contributors)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contact Information](#contact)
-- [License](#license)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Deployed URL
+## Available Scripts
 
-https://gentle-retreat-03024.herokuapp.com/
+In the project directory, you can run:
 
-## Description
+### `npm start`
 
-Book it Belle is a GraphQL project that had most of the main functionality already established, however, we switched conventional API routing with GraphQL routing.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-![main page](assets/images/main-page.png)
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-As soon as you open the page you will be prompted to enter a search term. Upon entering a search tearm it will return a series of books related to that term
+### `npm test`
 
-![results page](assets/images/results-page.png)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-At this point you can sign up or login if so desired, at which point you will be able to add any of the books to a saved book list that will keep your favorite books at arms reach for reference.
+### `npm run build`
 
-![login page](assets/images/login-page.png)
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-![saved books page](assets/images/saved-books-page.png)
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-From your saved books list when you have read or purchased the book you can then proceed to delete them as desired. All of this functionality provided solely by GraphQL and Apollo server APIs. 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Contributors
+### `npm run eject`
 
-David Samuelson
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-## Features
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- Uses React Front End
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-- Uses Apollo routing and API's on both the front and Back ends
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-- Responsive design
+## Learn More
 
-- Easy to use and adjust as needed
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Installation
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-- Clone the repository to a local repo
+### Code Splitting
 
-- run npm install from the base level outside of the server and client files
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-## Usage
+### Analyzing the Bundle Size
 
-- Adjust any fields in resolvers, mutations, queries, and typeDefs to get or manipulate information as desired
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## Contact
+### Making a Progressive Web App
 
-linksn.1fan@gmail.com
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-GitHub: https://github.com/dsamuelson?tab=repositories
+### Advanced Configuration
 
-## License
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-Link: https://choosealicense.com/licenses/unlicense/
+### Deployment
 
-License Terms:
-This is free and unencumbered software released into the public domain.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
+### `npm run build` fails to minify
 
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
-For more information, please refer to <https://unlicense.org>
-    
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
