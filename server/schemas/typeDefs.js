@@ -15,9 +15,9 @@ const typeDefs = gql`
     }
 
     input bValues {
-        favoriteId
-        title
-        cost
+        favoriteId: String
+        title: String
+        cost: String
     }
 
     type Auth {
