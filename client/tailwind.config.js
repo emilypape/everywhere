@@ -7,6 +7,7 @@ module.exports = {
       coral: '#ff385c',
       white: '#ffffff',
       gray: '#868686',
+      lightgrey: '#DDDDDD',
       slate: colors.slate,
     },
     extend: {},
