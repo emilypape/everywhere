@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react';
 
 function Nav() {
   return (
-    <div>
+    <div className='mb-7'>
       <div className='flex mt-4 justify-between'>
         <div className='flex'>
           <Icon className='p-1 text-5xl ml-3' icon='wpf:worldwide-location' color='#ff385c' />

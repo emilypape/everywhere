@@ -1,12 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors');
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     colors: {
       coral: '#ff385c',
-      lightGrey: '#EBEBEB',
+      white: '#ffffff',
+      gray: '#868686',
+      slate: colors.slate,
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [require('tw-elements/dist/plugin')],
 };
