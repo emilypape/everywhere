@@ -9,12 +9,12 @@ function TravelForm() {
   const [endDate, setEndDate] = useState(new Date());
 
   return (
-    <div className='z-50 absolute shadow-2xl shadow-inner bg-white p-5 mt-3 rounded-lg'>
+    <div className='z-50 absolute shadow-2xl shadow-inner bg-white p-8 mt-16 rounded-lg mr-5'>
       <h1 className='font-bold text-3xl'>Find places to stay Everywhere</h1>
       <p className='text-gray mt-2 mb-4'>Discover entire homes and private rooms perfect for any trip.</p>
       <div>
         <form>
-          <div className=' flex flex-col border-lightgrey border-2 rounded-lg'>
+          <div className=' flex flex-col border-lightgrey border-2 rounded-lg '>
             <label className='absolute font-bold text-sm ml-4 mt-1' for='location'>
               Location
             </label>
@@ -24,7 +24,7 @@ function TravelForm() {
               placeholder='Anywhere'
             />
           </div>
-          <div className='flex border-lightgrey border-2 rounded-lg mt-3 justify-evenly'>
+          <div className='flex border-lightgrey border-2 rounded-lg mt-3 justify-between'>
             <div className='flex flex-col '>
               <h1 className='font-bold text-sm ml-4 mt-1'>Check In</h1>
               <DatePicker
@@ -40,6 +40,34 @@ function TravelForm() {
                 selected={endDate}
                 onChange={(date) => setEndDate(date)}
               />
+            </div>
+          </div>
+          <div className='flex border-lightgrey border-2 rounded-lg mt-3 justify-between mb-10'>
+            <div className='flex flex-col'>
+              <label className='font-bold text-sm ml-4 mt-1' for='cars'>
+                Adults
+              </label>
+              <select className='multiselect__input ProseMirror p-3' id='adults' name='adults'>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+                <option value='6'>6</option>
+              </select>
+            </div>
+            <div className='flex flex-col mr-28'>
+              <label className='font-bold text-sm ml-4 mt-1' for='children'>
+                Children
+              </label>
+              <select className='multiselect__input ProseMirror p-3' id='children' name='children'>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+                <option value='6'>6</option>
+              </select>
             </div>
           </div>
         </form>

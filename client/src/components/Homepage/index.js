@@ -16,7 +16,7 @@ function Homepage() {
         </div>
         <div className='flex'>
           <div className='flex'>
-            <img width={1100} height={600} className='rounded-lg h-full ' src={Bnb} alt='bnb'></img>
+            <img width={1100} height={600} className='house-img rounded-lg h-full' src={Bnb} alt='bnb'></img>
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@ function Homepage() {
             <p className='absolute text-white w-64 mt-64 ml-24'>
               Choose from one of thousands of stays for your next adventure.
             </p>
-            <Icon className='absolute' icon='ant-design:question-circle-filled' color='white' width='26' height='26' />
+            {/* <Icon className='absolute' icon='ant-design:question-circle-filled' color='white' width='26' height='26' /> */}
           </div>
         </div>
         <img className='host-you-img rounded-2xl' src={sofaPic} />
