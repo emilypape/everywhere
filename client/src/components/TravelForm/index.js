@@ -9,7 +9,7 @@ function TravelForm() {
   const [endDate, setEndDate] = useState(new Date());
 
   return (
-    <div className='z-50 absolute shadow-2xl shadow-inner bg-white p-8 mt-16 rounded-lg mr-5'>
+    <div className='z-50 absolute shadow-2xl shadow-inner bg-white p-8 mt-16 rounded-lg'>
       <h1 className='font-bold text-3xl'>Find places to stay Everywhere</h1>
       <p className='text-gray mt-2 mb-4'>Discover entire homes and private rooms perfect for any trip.</p>
       <div>
@@ -25,7 +25,7 @@ function TravelForm() {
             />
           </div>
           <div className='flex border-lightgrey border-2 rounded-lg mt-3 justify-between'>
-            <div className='flex flex-col '>
+            <div className='flex flex-col check-in'>
               <h1 className='font-bold text-sm ml-4 mt-1'>Check In</h1>
               <DatePicker
                 className='multiselect__input ProseMirror p-3'
@@ -48,6 +48,7 @@ function TravelForm() {
                 Adults
               </label>
               <select className='multiselect__input ProseMirror p-3' id='adults' name='adults'>
+                <option value='0'>0</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
                 <option value='3'>3</option>
@@ -61,6 +62,7 @@ function TravelForm() {
                 Children
               </label>
               <select className='multiselect__input ProseMirror p-3' id='children' name='children'>
+                <option value='0'>0</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
                 <option value='3'>3</option>
