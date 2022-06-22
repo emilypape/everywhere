@@ -14,7 +14,7 @@ function TravelProtection() {
       <div className='flex flex-wrap justify-evenly p-4 mb-6'>
         <div className='flex flex-col '>
           <Icon className='text-2xl' icon='ant-design:security-scan-twotone' color='#ff385c' width='40' height='40' />
-          <h1 className='font-bold text-xl'>Protection with AirCover</h1>
+          <h1 className='font-bold text-xl'>Protection with Trip Cover</h1>
           <p className='w-64'>The most comprehensive protection in travel. Always included, always free.</p>
         </div>
         <div className='flex flex-col'>
