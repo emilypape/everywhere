@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
+import Dropmenu from '../Dropmenu';
 
 function Nav() {
   return (
@@ -13,6 +14,11 @@ function Nav() {
           <h1 className='text-black font-medium p-3'>Signup</h1>
           <h1 className='text-black font-medium p-3'>Login</h1>
         </div>
+        {/* render when viewing filtered page */}
+        <div className="flex">
+        <Dropmenu />
+        </div>
+        {/* ------------------- */}
       </div>
     </div>
   );
