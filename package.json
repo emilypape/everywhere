@@ -14,5 +14,10 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "i": "^0.3.7",
+    "npm": "^8.13.1",
+    "rsuite": "^5.15.1"
   }
 }

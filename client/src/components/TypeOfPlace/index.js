@@ -7,7 +7,7 @@ import Amenities from '../Amenities';
 function TypeOfPlace() {
   return (
     <div className='mt-10'>
-      <h1 className='text-3xl font-semibold'>Type of Place</h1>
+      <h1 className='text-3xl font-semibold mb-3'>Type of Place</h1>
       <div className='flex border-lightgrey border-b-2'>
         <div>
           <Checkbox className='p-3' color='pink' />
