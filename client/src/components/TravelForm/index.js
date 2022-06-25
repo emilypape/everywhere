@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react';
 import TravelFormCss from '../../assets/css/travelForm.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Link } from 'react-router-dom';
 
 function TravelForm() {
   const [startDate, setStartDate] = useState(new Date());
@@ -74,10 +75,12 @@ function TravelForm() {
           </div>
         </form>
       </div>
-      <button className='searchBtn flex rounded-lg py-4 px-48'>
-        <Icon className='mt-2' icon='bi:search' color='white' width='15' height='15' />
-        <h1 className='text-white p-1 font-bold'>Search</h1>
-      </button>
+      <Link to='/BookingPage'>
+        <button className='searchBtn flex rounded-lg py-4 px-48'>
+          <Icon className='mt-2' icon='bi:search' color='white' width='15' height='15' />
+          <h1 className='text-white p-1 font-bold'>Search</h1>
+        </button>
+      </Link>
     </div>
   );
 }

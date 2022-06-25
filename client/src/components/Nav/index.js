@@ -10,8 +10,8 @@ function Nav() {
           <h1 className='text-coral font-bold p-1 text-2xl'>everywhere</h1>
         </div>
         <div className='flex mr-3 '>
-          <h1 className='text-black font-medium p-3'>Signup</h1>
-          <h1 className='text-black font-medium p-3'>Login</h1>
+          <h1 className='cursor-pointer text-black font-medium p-3'>Signup</h1>
+          <h1 className='cursor-pointer text-black font-medium p-3'>Login</h1>
         </div>
       </div>
     </div>
