@@ -10,6 +10,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+.rc-slider-handle[aria-label]:hover:after {
+  position: absolute;
+  z-index: 1;
+  top: -2.2em;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  height: 2em;
+  border-radius: 1em;
+  padding: 0 0.7em;
+  content: attr(aria-label);
+  color: black;
+  background: lightgray;
+  font-size: 1em;
+  line-height: 2em;
+  text-align: left;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
