@@ -22,7 +22,7 @@ function Popular({ data }) {
               <div className='flex flex-col flex-wrap ml-10 '>
                 <div className='flex-col'>
                   <img className='w-80 rounded-lg' src={popular?.images[0]} />
-                  <div className='flex'>
+                  <div className='flex mt-3 mb-1'>
                     {Array(parseInt(popular.locationRating))
                       .fill('star')
                       .map((el) => {
