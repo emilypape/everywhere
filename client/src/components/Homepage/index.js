@@ -1,13 +1,13 @@
 import React from 'react';
 import TravelForm from '../TravelForm';
 import { Icon } from '@iconify/react';
-// import Popular from '../Popular';
+import Popular from '../Popular';
 import TravelProtection from '../TravelProtection';
 import Bnb from '../../assets/images/airbnb-homepage-image.webp';
 import sofaPic from '../../assets/images/sofa-photo.jpg';
 import '../../assets/css/homepage.css';
 
-function Homepage() {
+function Homepage({ data }) {
   return (
     <div>
       <div className='flex justify-evenly '>
@@ -33,6 +33,9 @@ function Homepage() {
           </div>
         </div>
         <img className='host-you-img rounded-2xl' src={sofaPic} />
+      </div>
+      <div>
+        <Popular data={data} />
       </div>
       <div>
         <TravelProtection />
