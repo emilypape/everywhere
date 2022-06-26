@@ -28,6 +28,10 @@ code {
   text-align: left;
 }
 
+.popular-width {
+  width: 22rem;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
