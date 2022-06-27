@@ -11,6 +11,7 @@ module.exports = withMT({
       lightgrey: '#DDDDDD',
       black: '#000',
       offBlack: '#222222',
+      darkGrey: '#353535',
       slate: colors.slate,
     },
     extend: {},
