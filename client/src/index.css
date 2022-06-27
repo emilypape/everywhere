@@ -32,6 +32,17 @@ code {
   width: 22rem;
 }
 
+.carousel {
+  border-radius: 1em;
+  overflow: hidden;
+  width: 22rem;
+}
+
+.heart {
+  margin-bottom: -2.5em;
+  z-index: 5;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

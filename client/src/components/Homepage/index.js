@@ -12,7 +12,7 @@ function Homepage({ data }) {
     <div>
       <div className='flex justify-evenly '>
         <div>
-          <TravelForm />
+          <TravelForm data={data} />
         </div>
         <div className='flex'>
           <div className='flex'>

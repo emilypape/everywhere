@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Icon } from '@iconify/react';
+import { Icon, loadIcon } from '@iconify/react';
 import TravelFormCss from '../../assets/css/travelForm.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -8,6 +8,29 @@ import { Link } from 'react-router-dom';
 function TravelForm() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [locations, setLocations] = useState('');
+  const [adults, setAdults] = useState(0);
+  const [children, setChildren] = useState(0);
+
+  const handleLocations = (event) => {
+    setLocations(event.target.value);
+  };
+
+  const handleAdults = (event) => {
+    setAdults(event.target.value);
+  };
+
+  const handleChildren = (event) => {
+    setChildren(event.target.value);
+  };
+
+  const state = {
+    adults,
+    children,
+    locations,
+    startDate,
+    endDate,
+  };
 
   return (
     <div className='z-50 absolute shadow-2xl shadow-inner bg-white p-8 mt-16 rounded-lg'>
@@ -23,6 +46,7 @@ function TravelForm() {
               className='multiselect__input ProseMirror p-4 mt-2 border-gray rounded-full'
               type='text'
               placeholder='Anywhere'
+              onChange={handleLocations}
             />
           </div>
           <div className='flex border-lightgrey border-2 rounded-lg mt-3 justify-between'>
@@ -48,7 +72,7 @@ function TravelForm() {
               <label className='font-bold text-sm ml-4 mt-1' for='cars'>
                 Adults
               </label>
-              <select className='multiselect__input ProseMirror p-3' id='adults' name='adults'>
+              <select className='multiselect__input ProseMirror p-3' id='adults' name='adults' onChange={handleAdults}>
                 <option value='0'>0</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
@@ -62,7 +86,11 @@ function TravelForm() {
               <label className='font-bold text-sm ml-4 mt-1' for='children'>
                 Children
               </label>
-              <select className='multiselect__input ProseMirror p-3' id='children' name='children'>
+              <select
+                className='multiselect__input ProseMirror p-3'
+                id='children'
+                name='children'
+                onChange={handleChildren}>
                 <option value='0'>0</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
@@ -75,7 +103,7 @@ function TravelForm() {
           </div>
         </form>
       </div>
-      <Link to='/BookingPage'>
+      <Link to='/BookingPage' state={state}>
         <button className='searchBtn flex rounded-lg py-4 px-48'>
           <Icon className='mt-2' icon='bi:search' color='white' width='15' height='15' />
           <h1 className='text-white p-1 font-bold'>Search</h1>
