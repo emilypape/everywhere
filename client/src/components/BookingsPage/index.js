@@ -25,7 +25,7 @@ function BookingPage({ data }) {
       <div className='flex justify-evenly mt-10 flex-wrap'>
         {filteredListings.map((listing) => {
           return (
-            <div className='flex flex-col'>
+            <div className='flex flex-col mb-10'>
               <div className='flex justify-end heart mr-3'>
                 <Icon icon='ant-design:heart-twotone' color='white' width='26' height='26' />
               </div>
