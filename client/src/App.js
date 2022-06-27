@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Homepage from './components/Homepage';
 import BookingPage from './components/BookingsPage';
+import SingleBooking from './components/SingleBookingPage';
 
 function App() {
   const [data, setData] = useState([]);
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Homepage data={data} />} />
           <Route path='/BookingPage' element={<BookingPage data={data} />} />
+          <Route path='/SingleBooking' element={<SingleBooking />} />
         </Routes>
         <Footer />
       </div>

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 
 function Popular({ data }) {
   const popular = data
@@ -7,6 +8,7 @@ function Popular({ data }) {
       return popular.locationRating >= '5' && popular.reviews.length;
     })
     .splice(0, 3);
+
   return (
     <div>
       <div className='ml-28 mt-10'>
@@ -21,7 +23,9 @@ function Popular({ data }) {
             <div className='flex'>
               <div className='flex flex-col flex-wrap ml-10 '>
                 <div className='flex-col'>
-                  <img className='popular-width rounded-lg' src={popular?.images[0]} />
+                  <Link to='/SingleBooking' state={popular.id}>
+                    <img className='popular-width rounded-lg' src={popular?.images[0]} />
+                  </Link>
                   <div className='flex mt-3 mb-1'>
                     {Array(parseInt(popular.locationRating))
                       .fill('star')
