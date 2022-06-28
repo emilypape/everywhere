@@ -43,6 +43,37 @@ code {
   z-index: 5;
 }
 
+.showPhotos {
+  margin-top: -4em;
+}
+
+.imageSizes {
+  object-fit: cover;
+  width: 30rem;
+  height: 17rem;
+}
+
+.popularImg {
+  object-fit: cover;
+  height: 16.55em;
+}
+
+.singleBookSmallImg {
+  object-fit: cover;
+  width: 30rem;
+  height: 15rem;
+}
+
+.singleBookBigImg {
+  object-fit: cover;
+  width: 50rem;
+  height: 30rem;
+}
+
+.shadowMe {
+  box-shadow: 0.1px 1px 12px 1px grey;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

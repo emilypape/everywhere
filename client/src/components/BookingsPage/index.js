@@ -31,19 +31,19 @@ function BookingPage({ data }) {
               </div>
               <Carousel showStatus={false} width={300} showThumbs={false} className='custom-slider rounded-lg carousel'>
                 <div>
-                  <img src={listing.images[0]} />
+                  <img className='imageSizes' src={listing.images[0]} />
                 </div>
                 <div>
-                  <img src={listing.images[1]} />
+                  <img className='imageSizes' src={listing.images[1]} />
                 </div>
                 <div>
-                  <img src={listing.images[2]} />
+                  <img className='imageSizes' src={listing.images[2]} />
                 </div>
                 <div>
-                  <img src={listing.images[3]} />
+                  <img className='imageSizes' src={listing.images[3]} />
                 </div>
                 <div>
-                  <img src={listing.images[4]} />
+                  <img className='imageSizes' src={listing.images[4]} />
                 </div>
               </Carousel>
               <div className='mt-3'>

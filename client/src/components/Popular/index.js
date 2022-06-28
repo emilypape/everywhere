@@ -24,7 +24,7 @@ function Popular({ data }) {
               <div className='flex flex-col flex-wrap ml-10 '>
                 <div className='flex-col'>
                   <Link to='/SingleBooking' state={popular.id}>
-                    <img className='popular-width rounded-lg' src={popular?.images[0]} />
+                    <img className='popular-width rounded-lg  popularImg' src={popular?.images[0]} />
                   </Link>
                   <div className='flex mt-3 mb-1'>
                     {Array(parseInt(popular.locationRating))
