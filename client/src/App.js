@@ -1,10 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Homepage from './components/Homepage';
 import BookingPage from './components/BookingsPage';
 import SingleBooking from './components/SingleBookingPage';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
   const [data, setData] = useState([]);
@@ -28,17 +54,19 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div>
-        <Nav />
-        <Routes>
-          <Route path='/' element={<Homepage data={data} />} />
-          <Route path='/BookingPage' element={<BookingPage data={data} />} />
-          <Route path='/SingleBooking' element={<SingleBooking />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <ApolloProvider client={client}>
+      <Router>
+        <div>
+          <Nav />
+          <Routes>
+            <Route path='/' element={<Homepage data={data} />} />
+            <Route path='/BookingPage' element={<BookingPage data={data} />} />
+            <Route path='/SingleBooking' element={<SingleBooking />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </ApolloProvider>
   );
 }
 

@@ -1,25 +1,50 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { LOGIN } from '../../utils/mutations';
+import { ADD_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
-// import Auth from '';
 
 function Nav() {
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [userFormData2, setUserFormData2] = useState({ username: '', email: '', password: '' });
+  const [login] = useMutation(LOGIN);
+  const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     // login logic here!
+    try {
+      const mutationResponse = await login({
+        variables: { email: userFormData.email, password: userFormData.password },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
+    }
   };
+  
 
   const handleFormSignupSubmit = async (event) => {
     event.preventDefault();
 
     // signup logic here!
+    const mutationResponse = await addUser({
+      variables: {
+        email: userFormData2.email,
+        password: userFormData2.password,
+        firstName: userFormData2.firstName,
+        lastName: userFormData2.lastName,
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
   };
 
   const handleInputChange = (event) => {

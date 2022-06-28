@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 // needs 'headlessui/react' package
-// import { Menu, Transition } from '@headlessui/react'
+import { Menu, Transition } from '@headlessui/react'
 
 function Dropmenu() {
 

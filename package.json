@@ -16,7 +16,10 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
+    "@headlessui/react": "^1.6.5",
     "i": "^0.3.7",
+    "jwt-decode": "^3.1.2",
     "npm": "^8.13.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
