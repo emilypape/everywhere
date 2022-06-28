@@ -84,20 +84,23 @@ function SingleBooking() {
               </button>
             </div>
             {/* start lower part under photos */}
-            <div className='mt-12  flex justify-between'>
-              <div className='flex justify-between'>
-                <div>
+            <div className='mt-12  flex border-b-2 border-lightgrey w-7/12 justify-between'>
+              <div className='flex justify-between '>
+                <div className=''>
                   <div className='font-semibold text-2xl'>Hosted by {listing.hostInfo.name}</div>
-                  <div className='flex'>
+                  <div className='flex mb-5'>
                     <div>{listing.rooms} guests &#160;</div>
                     &#183;
                     <div> &#160;{listing.rooms} bedrooms</div>
                   </div>
                 </div>
               </div>
-              <div>
+              <div className='ml-32'>
                 <img className='inline object-cover w-16 h-16 mr-2 rounded-full' src={listing.hostInfo.hostImage} />
               </div>
+            </div>
+            {/* start form */}
+            <div className='flex justify-end'>
               <div>
                 {/* edit this stupid form */}
                 <div className='z-50 sticky shadowMe  bg-white p-8 rounded-lg w-96'>
@@ -148,6 +151,7 @@ function SingleBooking() {
                   <button className='searchBtn flex rounded-lg py-4 px-32'>
                     <h1 className='text-white font-bold'>Reserve</h1>
                   </button>
+                  <div className='px-16 pt-5 text-gray'>You won't be charged yet</div>
                 </div>
               </div>
             </div>
