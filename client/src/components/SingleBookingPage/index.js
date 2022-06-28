@@ -102,15 +102,41 @@ function SingleBooking() {
             {/* start form */}
             <div className='flex justify-end'>
               <div>
+                <div className='w-10/12 text-darkGrey mt-5'>
+                  <span className='font-semibold text-lg'>Welcome to {listing.address}!</span> {listing.description}
+                </div>
+                <div>
+                  <div className='mt-5 font-semibold text-2xl border-t-2 border-lightgrey py-5 w-11/12'>
+                    What this place offers
+                  </div>
+                  <div className='text-lg flex'>
+                    <div className='flex flex-col'>
+                      <div className='py-2'>{listing.amenities[0]}</div>
+                      <div className='py-2'>{listing.amenities[1]}</div>
+                      <div className='py-2'>{listing.amenities[2]}</div>
+                      <div className='py-2'>{listing.amenities[3]}</div>
+                      <div className='py-2'>{listing.amenities[4]}</div>
+                    </div>
+                    <div className='flex flex-col ml-36'>
+                      <div className='py-2'>{listing.amenities[5]}</div>
+                      <div className='py-2'>{listing.amenities[6]}</div>
+                      <div className='py-2'>{listing.amenities[7]}</div>
+                      <div className='py-2'>{listing.amenities[8]}</div>
+                      <div className='py-2'>{listing.amenities[9]}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
                 {/* edit this stupid form */}
-                <div className='z-50 sticky shadowMe  bg-white p-8 rounded-lg w-96'>
+                <div className='z-50 shadowMe  bg-white p-8 rounded-lg w-96'>
                   <div className='flex justify-between'>
                     <div>
-                      <span className='font-semibold text-xl'>${listing.price}</span> night
+                      <span className='font-semibold text-2xl'>${listing.price}</span> night
                     </div>
                     <div className='flex'>
-                      <div>
-                        <span className='text-black'>&#9733;</span>
+                      <div className='font-semibold'>
+                        <span className='font-normal text-black'>&#9733;</span>
                         {listing.locationRating}.0 &#160;
                       </div>
                       <div className='font-semibold'>
@@ -143,7 +169,15 @@ function SingleBooking() {
                           <label className='font-bold text-sm ml-4 mt-1' for='cars'>
                             Guests
                           </label>
-                          <div className='ml-4 mb-1'>{listing.rooms} guest</div>
+                          <select className='multiselect__input ProseMirror p-3' id='guests' name='guests'>
+                            <option value='0'>{listing.rooms}</option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                          </select>
                         </div>
                       </div>
                     </form>
@@ -152,6 +186,13 @@ function SingleBooking() {
                     <h1 className='text-white font-bold'>Reserve</h1>
                   </button>
                   <div className='px-16 pt-5 text-gray'>You won't be charged yet</div>
+                </div>
+                <div className='flex border-lightgrey border-2 rounded-lg p-5 mt-10'>
+                  <div>
+                    <span className='font-semibold text-lg'>This is a rare find.</span>&#160;
+                    {listing.hostInfo.name}'s place is usually fully booked.
+                  </div>
+                  <Icon icon='ic:twotone-diamond' color='#ff385c' width='60' height='60' />
                 </div>
               </div>
             </div>
