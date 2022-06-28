@@ -10,6 +10,71 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+.rc-slider-handle[aria-label]:hover:after {
+  position: absolute;
+  z-index: 1;
+  top: -2.2em;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  height: 2em;
+  border-radius: 1em;
+  padding: 0 0.7em;
+  content: attr(aria-label);
+  color: black;
+  background: lightgray;
+  font-size: 1em;
+  line-height: 2em;
+  text-align: left;
+}
+
+.popular-width {
+  width: 22rem;
+}
+
+.carousel {
+  border-radius: 1em;
+  overflow: hidden;
+  width: 22rem;
+}
+
+.heart {
+  margin-bottom: -2.5em;
+  z-index: 5;
+}
+
+.showPhotos {
+  margin-top: -4em;
+}
+
+.imageSizes {
+  object-fit: cover;
+  width: 30rem;
+  height: 17rem;
+}
+
+.popularImg {
+  object-fit: cover;
+  height: 16.55em;
+}
+
+.singleBookSmallImg {
+  object-fit: cover;
+  width: 30rem;
+  height: 15rem;
+}
+
+.singleBookBigImg {
+  object-fit: cover;
+  width: 50rem;
+  height: 30rem;
+}
+
+.shadowMe {
+  box-shadow: 0.1px 1px 12px 1px grey;
+  margin-top: -4rem;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
