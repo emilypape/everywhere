@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import '../../assets/css/typeOfPlace.css';
 
-function RoomsAndBeds() {
-  const [isSelected, setIsSelected] = useState('Any');
-  const [isAlsoSelected, setIsAlsoSelected] = useState('Any');
-
+function RoomsAndBeds({ isSelected, setIsSelected, isAlsoSelected, setIsAlsoSelected }) {
   function selectedOnClick(e) {
     setIsSelected(e.target.innerText);
   }
