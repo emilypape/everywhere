@@ -105,11 +105,11 @@ function SingleBooking() {
                 <div className='w-10/12 text-darkGrey mt-5'>
                   <span className='font-semibold text-lg'>Welcome to {listing.address}!</span> {listing.description}
                 </div>
-                <div>
+                <div className=''>
                   <div className='mt-5 font-semibold text-2xl border-t-2 border-lightgrey py-5 w-11/12'>
                     What this place offers
                   </div>
-                  <div className='text-lg flex'>
+                  <div className='text-lg flex border-b-2 border-lightgrey w-11/12'>
                     <div className='flex flex-col'>
                       <div className='py-2'>{listing.amenities[0]}</div>
                       <div className='py-2'>{listing.amenities[1]}</div>
@@ -123,6 +123,18 @@ function SingleBooking() {
                       <div className='py-2'>{listing.amenities[7]}</div>
                       <div className='py-2'>{listing.amenities[8]}</div>
                       <div className='py-2'>{listing.amenities[9]}</div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className='flex mt-3'>
+                    <div className='font-semibold text-xl'>
+                      <span className='text-black'>&#9733;</span>
+                      {listing.locationRating}.0 &#160;
+                    </div>
+                    &#183;
+                    <div className='font-semibold text-xl '>
+                      &#160;&#160;{listing.reviews.length} <span className='underline'>reviews</span>
                     </div>
                   </div>
                 </div>
