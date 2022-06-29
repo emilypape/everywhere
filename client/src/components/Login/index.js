@@ -4,6 +4,7 @@ import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 function Login(props) {
+    const [showModal2, setShowModal2] = useState(false);
 
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error }] = useMutation(LOGIN);
@@ -44,7 +45,7 @@ function Login(props) {
                 placeholder="Your email"
                 name="email"
                 onChange={handleInputChange}
-                value={userFormData.email}
+                value={formState.email}
                 className="text-sm text-gray-base w-full 
                       mr-3 py-5 px-4 h-2 border 
                       border-gray-200 rounded mb-2"
@@ -55,7 +56,7 @@ function Login(props) {
                 placeholder="Your password"
                 name="password"
                 onChange={handleInputChange}
-                value={userFormData.password}
+                value={formState.password}
                 className="text-sm text-gray-base w-full mr-3 
                       py-5 px-4 h-2 border border-gray-200 
                       rounded mb-2"

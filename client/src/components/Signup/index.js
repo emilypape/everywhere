@@ -5,6 +5,7 @@ import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 function Signup(props) {
+    const [showModal2, setShowModal2] = useState(false);
 
     const [formState, setFormState] = useState({username: '', email: '', password: '' });
     const [addUser] = useMutation(ADD_USER);
@@ -39,7 +40,7 @@ function Signup(props) {
                 placeholder="Username"
                 name="username"
                 onChange={handleChange}
-                value={userFormData2.username}
+                value={formState.username}
                 className="text-sm text-gray-base w-full 
                       mr-3 py-5 px-4 h-2 border 
                       border-gray-200 rounded mb-2"
@@ -50,7 +51,7 @@ function Signup(props) {
                 placeholder="Email address"
                 name="email"
                 onChange={handleChange}
-                value={userFormData2.email}
+                value={formState.email}
                 className="text-sm text-gray-base w-full 
                       mr-3 py-5 px-4 h-2 border 
                       border-gray-200 rounded mb-2"
@@ -61,7 +62,7 @@ function Signup(props) {
                 placeholder="Password"
                 name="password"
                 onChange={handleChange}
-                value={userFormData2.password}
+                value={formState.password}
                 className="text-sm text-gray-base w-full mr-3 
                       py-5 px-4 h-2 border border-gray-200 
                       rounded mb-2"
