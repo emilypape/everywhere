@@ -14,12 +14,5 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
-  },
-  "dependencies": {
-    "i": "^0.3.7",
-    "npm": "^8.13.1",
-    "react-responsive-carousel": "^3.2.23",
-    "react-router-dom": "^6.3.0",
-    "rsuite": "^5.15.1"
   }
 }
