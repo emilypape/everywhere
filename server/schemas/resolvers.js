@@ -52,11 +52,11 @@ const resolvers = {
             const token = signToken(user);
             return { token, user }
         },
-        addFavorite: async (parent, { input }, context) => {
+        addFavorite: async (parent, { favoriteId }, context) => {
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $addToSet: { favorites: input }},
+                    { $addToSet: { favorites: favoriteId }},
                     { new: true })
                     .select('-__v -password')
                     .populate('favorites');
