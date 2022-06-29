@@ -141,10 +141,10 @@ function Nav() {
             <div className='justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none'>
               <div className='relative w-auto my-6 mx-auto max-w-3xl '>
                 {/*content*/}
-                <div className=' px-1 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
+                <div className=' px-4 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
                   {/*header*/}
                   <div className='flex justify-between p-5 border-b border-solid border-slate-200 rounded-t'>
-                    <div className='text-xl'>Sign Up</div>
+                    <div className='text-xl font-semibold'>Sign Up</div>
                     <button
                       className='p-1 ml-auto  border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none '
                       onClick={() => setShowModal(false)}>
@@ -161,7 +161,7 @@ function Nav() {
                       value={userFormData2.username}
                       className='text-sm text-gray-base w-full 
                       mr-3 py-5 px-4 h-2 border 
-                      border-gray-200 rounded mb-2'
+                      border-gray rounded mb-2'
                       required
                     />
                     <input
@@ -172,7 +172,7 @@ function Nav() {
                       value={userFormData2.email}
                       className='text-sm text-gray-base w-full 
                       mr-3 py-5 px-4 h-2 border 
-                      border-gray-200 rounded mb-2'
+                      border-gray rounded mb-2'
                       required
                     />
                     <input
@@ -182,7 +182,7 @@ function Nav() {
                       onChange={handleInputSignupChange}
                       value={userFormData2.password}
                       className='text-sm text-gray-base w-full mr-3 
-                      py-5 px-4 h-2 border border-gray-200 
+                      py-5 px-4 h-2 border border-gray 
                       rounded mb-2'
                       required
                     />
@@ -190,7 +190,7 @@ function Nav() {
                     <div className='flex items-center justify-between p-6 border-t border-solid border-slate-200 rounded-b'>
                       <button
                         type='submit'
-                        className='p-1 bg-coral text-white w-full mt-4'
+                        className='p-1 bg-coral text-white w-full mt-4 rounded-lg'
                         onClick={() => setShowModal2(false)}>
                         Submit
                       </button>
@@ -205,12 +205,12 @@ function Nav() {
         {showModal2 ? (
           <>
             <div className='justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none'>
-              <div className='relative w-auto my-6 mx-auto max-w-3xl '>
+              <div className='relative w-auto my-6 mx-auto max-w-3xl'>
                 {/*content*/}
-                <div className='border-4 border-black px-1 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
+                <div className=' px-4 py-2 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
                   {/*header*/}
                   <div className='flex justify-between p-5 border-b border-solid border-slate-200 rounded-t'>
-                    <div className='text-xl'>Login Please</div>
+                    <div className='text-xl font-semibold'>Login</div>
                     <button
                       className='ml-auto  border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none '
                       onClick={() => setShowModal2(false)}>
@@ -221,23 +221,23 @@ function Nav() {
                   <form onSubmit={handleFormLoginSubmit}>
                     <input
                       type='text'
-                      placeholder='Your email'
+                      placeholder='email'
                       name='email'
                       onChange={handleInputChange}
                       value={userFormData.email}
                       className='text-sm text-gray-base w-full 
-                      mr-3 py-5 px-4 h-2 border 
-                      border-gray-200 rounded mb-2'
+                      mr-3 py-5 px-8 h-2 border 
+                      border-gray rounded mb-2'
                       required
                     />
                     <input
                       type='password'
-                      placeholder='Your password'
+                      placeholder='password'
                       name='password'
                       onChange={handleInputChange}
                       value={userFormData.password}
                       className='text-sm text-gray-base w-full mr-3 
-                      py-5 px-4 h-2 border border-gray-200 
+                      py-5 px-8 h-2 border border-gray 
                       rounded mb-2'
                       required
                     />
@@ -245,7 +245,7 @@ function Nav() {
                     <div className='flex items-center justify-between p-6 border-t border-solid border-slate-200 rounded-b'>
                       <button
                         type='submit'
-                        className='p-1 bg-red-700 text-white w-full mt-4'
+                        className='p-1 bg-coral text-white w-full mt-4 rounded-lg'
                         onClick={() => setShowModal2(false)}>
                         Login
                       </button>
