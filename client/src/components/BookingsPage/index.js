@@ -26,7 +26,7 @@ function BookingPage({ data }) {
   const postFavorite = async (e) => {
     e.preventDefault();
     try {
-      await addFavorites({ variables: e.target.id });
+      await addFavorites({ variables: {favoriteId: e.target.id }});
     } catch (error) {
       console.log(error);
     }
@@ -51,6 +51,7 @@ function BookingPage({ data }) {
                   width='26'
                   height='26'
                   onClick={postFavorite}
+                  key={listing.id}
                 />
               </div>
 
