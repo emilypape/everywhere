@@ -33,7 +33,7 @@ function TravelForm() {
   };
 
   return (
-    <div className='z-50 absolute shadow-2xl shadow-inner bg-white p-8 mt-16 rounded-lg'>
+    <div className='z-40 absolute shadow-2xl shadow-inner bg-white p-8 mt-16 rounded-lg'>
       <h1 className='font-bold text-3xl'>Find places to stay Everywhere</h1>
       <p className='text-gray mt-2 mb-4'>Discover entire homes and private rooms perfect for any trip.</p>
       <div>
