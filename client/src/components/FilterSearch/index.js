@@ -26,11 +26,24 @@ function FilterSearch({ listings, setListings }) {
 export default FilterSearch;
 
 function FilterModal({ setShowModal, listings, setListings }) {
-  const [isSelected, setIsSelected] = useState('Any');
-  const [isAlsoSelected, setIsAlsoSelected] = useState('Any');
+  const [isSelected, setIsSelected] = useState('0');
+  const [isAlsoSelected, setIsAlsoSelected] = useState('0');
   const [range, setRange] = useState([0, 350]);
   const [typeOfPlace, setTypeOfPlace] = useState('');
   const [amenities, setAmenities] = useState([]);
+
+  function showStays() {
+    setListings(
+      listings.filter(function (listing) {
+        return (
+          listing.rooms >= parseInt(isSelected) &&
+          listing.price <= range[1] &&
+          compareArrays(listing.amenities, amenities)
+        );
+      }),
+    );
+    setShowModal(false);
+  }
   return (
     <>
       <div className='justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none'>
@@ -71,7 +84,7 @@ function FilterModal({ setShowModal, listings, setListings }) {
               <button
                 className='bg-offBlack bg-emerald-500 text-white active:bg-emerald-600 font-bold text-md px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
                 type='button'
-                onClick={() => setShowModal(false)}>
+                onClick={showStays}>
                 Show Stays
               </button>
             </div>
@@ -81,4 +94,17 @@ function FilterModal({ setShowModal, listings, setListings }) {
       <div className='opacity-25 fixed inset-0 z-40 bg-black'></div>
     </>
   );
+}
+
+function compareArrays(listingAmenities, selectedAmenities) {
+  let amenityMatch = 0;
+  for (let i = 0; i < selectedAmenities.length; i++) {
+    for (let j = 0; j < listingAmenities.length; j++) {
+      if (selectedAmenities[i] === listingAmenities[j]) {
+        amenityMatch += 1;
+        continue;
+      }
+    }
+  }
+  return amenityMatch === selectedAmenities.length;
 }
