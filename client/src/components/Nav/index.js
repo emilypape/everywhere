@@ -2,32 +2,30 @@ import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { LOGIN } from '../../utils/mutations';
-import { ADD_USER } from '../../utils/mutations';
+import { LOGIN, ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
-
-function Nav() {
+function Nav(props) {
+  const [login] = useMutation(LOGIN);
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
-  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const [loginFormState, setLoginFormState] = useState({ email: '', password: '' });
   const [userFormData2, setUserFormData2] = useState({ username: '', email: '', password: '' });
-  // const [login] = useMutation(LOGIN);
-  // const [addUser] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
 
-  const handleFormSubmit = async (event) => {
+  const handleLoginFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(loginFormState)
     // login logic here!
-    // try {
-    //   const mutationResponse = await login({
-    //     variables: { email: userFormData.email, password: userFormData.password },
-    //   });
-    //   const token = mutationResponse.data.login.token;
-    //   Auth.login(token);
-    // } catch (e) {
-    //   console.log(e);
-    // }
+    try {
+      const mutationResponse = await login({
+        variables: { email: loginFormState.email, password: loginFormState.password },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
+    }
   };
   
 
@@ -35,21 +33,20 @@ function Nav() {
     event.preventDefault();
 
     // signup logic here!
-    // const mutationResponse = await addUser({
-    //   variables: {
-    //     email: userFormData2.email,
-    //     password: userFormData2.password,
-    //     firstName: userFormData2.firstName,
-    //     lastName: userFormData2.lastName,
-    //   },
-    // });
-    // const token = mutationResponse.data.addUser.token;
-    // Auth.login(token);
+    const mutationResponse = await addUser({
+      variables: {
+        email: userFormData2.email,
+        password: userFormData2.password,
+        username: userFormData2.username
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
   };
 
-  const handleInputChange = (event) => {
+  const handleLoginInputChange = (event) => {
     const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
+    setLoginFormState({ ...loginFormState, [name]: value });
   };
 
   const handleInputSignupChange = (event) => {
@@ -78,28 +75,24 @@ function Nav() {
               <div className='flex items-center justify-center'>
                 <div className='p-10'>
                   <p className='text-black-700 text-xl mb-3 text-center'>Please Login</p>
-                  <form onSubmit={handleFormSubmit}>
+                  <form onSubmit={handleLoginFormSubmit}>
                     <input
                       type='text'
                       placeholder='Your email'
                       name='email'
-                      onChange={handleInputChange}
-                      value={userFormData.email}
+                      onChange={handleLoginInputChange}
                       className='text-sm text-gray-base w-full 
                       mr-3 py-5 px-4 h-2 border 
                       border-gray-200 rounded mb-2'
-                      required
                     />
                     <input
                       type='password'
                       placeholder='Your password'
                       name='password'
-                      onChange={handleInputChange}
-                      value={userFormData.password}
+                      onChange={handleLoginInputChange}
                       className='text-sm text-gray-base w-full mr-3 
                       py-5 px-4 h-2 border border-gray-200 
                       rounded mb-2'
-                      required
                     />
                     <button
                       type='submit'
