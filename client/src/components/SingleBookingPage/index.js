@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ADD_FAVORITE } from '../../utils/mutations';
-import { useMutation } from '@apollo/client'
+import { useMutation } from '@apollo/client';
 
 function SingleBooking() {
   const [addFavorites] = useMutation(ADD_FAVORITE);
   // grab info from previous loading page
+  const myRef = useRef(null);
   const location = useLocation();
   const [listingData, setListingData] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
@@ -26,7 +27,7 @@ function SingleBooking() {
   const postFavorite = async (e) => {
     e.preventDefault();
     try {
-      await addFavorites({ variables: {favoriteId: e.target.id }});
+      await addFavorites({ variables: { favoriteId: e.target.id } });
     } catch (error) {
       console.log(error);
     }
@@ -50,6 +51,8 @@ function SingleBooking() {
     }
   }
 
+  const executeScroll = () => myRef.current.scrollIntoView();
+
   return (
     <div>
       {/* map through and append information */}
@@ -71,7 +74,14 @@ function SingleBooking() {
                 </div>
               </div>
               <div className='flex mb-5 mt-2'>
-                <Icon className='mr-1 ml-96' icon='ant-design:heart-twotone' color='black' width='24' height='24' onClick={postFavorite}/>
+                <Icon
+                  className='mr-1 ml-96'
+                  icon='ant-design:heart-twotone'
+                  color='black'
+                  width='24'
+                  height='24'
+                  onClick={postFavorite}
+                />
                 <div className='underline font-semibold hover:text-coral'>Save</div>
               </div>
             </div>
@@ -120,7 +130,7 @@ function SingleBooking() {
                   <div className='mt-5 font-semibold text-2xl border-t-2 border-lightgrey py-5 w-11/12'>
                     What this place offers
                   </div>
-                  <div className='text-lg flex border-b-2 border-lightgrey w-11/12'>
+                  <div className='text-lg flex border-b-2 border-lightgrey '>
                     <div className='flex flex-col'>
                       <div className='py-2'>{listing.amenities[0]}</div>
                       <div className='py-2'>{listing.amenities[1]}</div>
@@ -137,8 +147,9 @@ function SingleBooking() {
                     </div>
                   </div>
                 </div>
+                {/* reviews */}
                 <div>
-                  <div className='flex mt-3'>
+                  <div className='flex mt-5 '>
                     <div className='font-semibold text-xl'>
                       <span className='text-black'>&#9733;</span>
                       {listing.locationRating}.0 &#160;
@@ -148,11 +159,86 @@ function SingleBooking() {
                       &#160;&#160;{listing.reviews.length} <span className='underline'>reviews</span>
                     </div>
                   </div>
+                  <div className='mt-5'>
+                    <div className='font-semibold text-lg'>
+                      {listing.reviews[0].revTitle}&#160; <span className='text-black'>&#9733;</span>{' '}
+                      <span className='font-bold text-xl'>{listing.reviews[0].reviewRating}.0</span>
+                    </div>
+                    <div>
+                      <div>{listing.reviews[0].reviewBody}</div>
+                    </div>
+                  </div>
+                  <div className='mt-5'>
+                    <div className='font-semibold text-lg'>
+                      {listing.reviews[1].revTitle}&#160; <span className='text-black'>&#9733;</span>{' '}
+                      <span className='font-bold text-xl'>{listing.reviews[1].reviewRating}.0</span>
+                    </div>
+                    <div>
+                      <div>{listing.reviews[1].reviewBody}</div>
+                    </div>
+                  </div>
+                  <div className='mt-5'>
+                    <div className='font-semibold text-lg'>
+                      {listing.reviews[2].revTitle}&#160; <span className='text-black'>&#9733;</span>{' '}
+                      <span className='font-bold text-xl'>{listing.reviews[2].reviewRating}.0</span>
+                    </div>
+                    <div>
+                      <div>{listing.reviews[2].reviewBody}</div>
+                    </div>
+                  </div>
+                  <div className='mt-5 mb-5'>
+                    <div className='font-semibold text-lg'>
+                      {listing.reviews[3].revTitle}&#160; <span className='text-black'>&#9733;</span>{' '}
+                      <span className='font-bold text-xl'>{listing.reviews[3].reviewRating}.0</span>
+                    </div>
+                    <div>
+                      <div>{listing.reviews[3].reviewBody}</div>
+                    </div>
+                  </div>
+                  <div
+                    onClick={executeScroll}
+                    className='font-semibold underline text-lg flex border-b-2 border-lightgrey '>
+                    Book to see more reviews!
+                  </div>
+                </div>
+                {/* start hosting information */}
+                <div className='flex flex-col mt-8'>
+                  <div className='flex'>
+                    <img src={listing.hostInfo.hostImage} className='inline object-cover w-16 h-16 mr-2 rounded-full' />
+                    <div>
+                      <div className='font-semibold text-xl'>Hosted by {listing.hostInfo.name}</div>
+                      <div className='text-gray'>Joined December 201{listing.hostInfo.hostResponseRating}</div>
+                    </div>
+                  </div>
+                  <div className='flex'>
+                    <div className='mt-5'>
+                      <span className='text-black'>&#9733;</span>
+                      &#160;&#160;{listing.reviews.length} <span className=''>reviews</span>
+                    </div>
+                    <div className='flex mt-5 ml-5'>
+                      <Icon className='mt-1' icon='bx:time' color='black' width='20' height='20' />
+                      &#160;
+                      <div>Response Rating: {listing.hostInfo.hostResponseRating}</div>
+                    </div>
+                  </div>
+                  <div className='mt-5'>
+                    <div className='font-semibold'>During your stay</div>
+                    <div className='mt-3'>
+                      Welcome to my home! {listing.address} welcomes you! We offer {listing.rules[0]} and{' '}
+                      {listing.rules[1]} for your convienance and safety.
+                    </div>
+                    <div className='flex w-96 mt-7 mb-5'>
+                      <Icon icon='dashicons:money-alt' color='#fa385c' width='50' height='50' />
+                      <div className='text-xs text-gray p-2'>
+                        To protect your payment, never transfer money outside of the Everywhere website or app.
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div>
                 {/* edit this stupid form */}
-                <div className='z-50 shadowMe  bg-white p-8 rounded-lg w-96'>
+                <div ref={myRef} className='z-50 shadowMe  bg-white p-8 rounded-lg w-96'>
                   <div className='flex justify-between'>
                     <div>
                       <span className='font-semibold text-2xl'>${listing.price}</span> night
