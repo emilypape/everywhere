@@ -14,13 +14,13 @@ export const LOGIN = gql`
 
 export const ADD_USER = gql`
   mutation createUser(
-    $username: String!
-    $email: String!
+    $username: String!,
+    $email: String!,
     $password: String!
   ) {
     createUser(
-      username: $username
-      email: $email
+      username: $username,
+      email: $email,
       password: $password
     ) {
       token
@@ -37,6 +37,9 @@ export const ADD_FAVORITE = gql`
       user {
         username
         _id
+        favorites {
+          favoriteId
+        }
       }
     }
   }

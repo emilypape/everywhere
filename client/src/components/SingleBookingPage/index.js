@@ -3,8 +3,11 @@ import { useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { ADD_FAVORITE } from '../../utils/mutations';
+import { useMutation } from '@apollo/client'
 
 function SingleBooking() {
+  const [addFavorites] = useMutation(ADD_FAVORITE);
   // grab info from previous loading page
   const location = useLocation();
   const [listingData, setListingData] = useState([]);
@@ -20,6 +23,14 @@ function SingleBooking() {
     return <div>Sorry, we couldn't find that booking, go back!</div>;
   }
 
+  const postFavorite = async (e) => {
+    e.preventDefault();
+    try {
+      await addFavorites({ variables: {favoriteId: e.target.id }});
+    } catch (error) {
+      console.log(error);
+    }
+  };
   // id of selected booking
   const id = location.state;
 
@@ -60,7 +71,7 @@ function SingleBooking() {
                 </div>
               </div>
               <div className='flex mb-5 mt-2'>
-                <Icon className='mr-1 ml-96' icon='ant-design:heart-twotone' color='black' width='24' height='24' />
+                <Icon className='mr-1 ml-96' icon='ant-design:heart-twotone' color='black' width='24' height='24' onClick={postFavorite}/>
                 <div className='underline font-semibold hover:text-coral'>Save</div>
               </div>
             </div>
