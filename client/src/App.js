@@ -5,6 +5,7 @@ import { setContext } from '@apollo/client/link/context';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Homepage from './components/Homepage';
+import Favorites from './components/Favorites';
 import BookingPage from './components/BookingsPage';
 import SingleBooking from './components/SingleBookingPage';
 import Reservation from './components/Reservation';
@@ -60,6 +61,7 @@ function App() {
           <Route path='/BookingPage' element={<BookingPage data={data} />} />
           <Route path='/SingleBooking' element={<SingleBooking />} />
           <Route path='/Reservation' element={<Reservation/>} />
+          <Route path='/Favorites' element={<Favorites />} />
         </Routes>
         <Footer />
       </div>
