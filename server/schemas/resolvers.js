@@ -54,7 +54,6 @@ const resolvers = {
         },
         addFavorite: async (parent, args, context) => {
             if (context.user) {
-                console.log(args.favoriteId, context.user._id)
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
                     { $addToSet: { favorites: {favoriteId: args.favoriteId} }},

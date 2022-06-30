@@ -7,7 +7,7 @@ import { ADD_FAVORITE } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 
 function SingleBooking() {
-  const [addFavorites] = useMutation(ADD_FAVORITE);
+  const [addFavorite] = useMutation(ADD_FAVORITE);
   // grab info from previous loading page
   const myRef = useRef(null);
   const location = useLocation();
@@ -25,10 +25,10 @@ function SingleBooking() {
     return <div>Sorry, we couldn't find that booking, go back!</div>;
   }
 
-  const postFavorite = async (e) => {
+  const postFavorite = async (e, favoriteId) => {
     e.preventDefault();
     try {
-      await addFavorites({ variables: { favoriteId: e.target.id } });
+      await addFavorite({ variables: {favoriteId} });
     } catch (error) {
       console.log(error);
     }
@@ -81,22 +81,22 @@ function SingleBooking() {
                   color='black'
                   width='24'
                   height='24'
-                  onClick={postFavorite}
+                  onClick={event => postFavorite(event, listing._id)}
                 />
                 <div className='underline font-semibold hover:text-coral'>Save</div>
               </div>
             </div>
             <div className='flex'>
               <div>
-                <img className='rounded-l-lg pr-2 singleBookBigImg' src={listing.images[0]} />
+                <img className='rounded-l-lg pr-2 singleBookBigImg' src={listing.images[0]} alt='' />
               </div>
               <div className='flex flex-col'>
-                <img className='pr-1 pb-1 singleBookSmallImg' width={944} src={listing.images[1]} />
-                <img className='pr-1 pt-1 singleBookSmallImg' width={944} src={listing.images[2]} />
+                <img className='pr-1 pb-1 singleBookSmallImg' width={944} src={listing.images[1]} alt='' />
+                <img className='pr-1 pt-1 singleBookSmallImg' width={944} src={listing.images[2]} alt='' />
               </div>
               <div className='flex flex-col'>
-                <img className='rounded-tr-lg pb-1 pl-1 singleBookSmallImg' width={944} src={listing.images[3]} />
-                <img className='rounded-br-lg pl-1 pt-1 singleBookSmallImg' width={944} src={listing.images[4]} />
+                <img className='rounded-tr-lg pb-1 pl-1 singleBookSmallImg' width={944} src={listing.images[3]} alt='' />
+                <img className='rounded-br-lg pl-1 pt-1 singleBookSmallImg' width={944} src={listing.images[4]} alt='' />
               </div>
             </div>
             <div className='flex justify-end mr-5 z-10 showPhotos mb-10'>
@@ -127,7 +127,7 @@ function SingleBooking() {
                 </div>
               </div>
               <div className='ml-32'>
-                <img className='inline object-cover w-16 h-16 mr-2 rounded-full' src={listing.hostInfo.hostImage} />
+                <img className='inline object-cover w-16 h-16 mr-2 rounded-full' src={listing.hostInfo.hostImage} alt='' />
               </div>
             </div>
             {/* start form */}
@@ -214,7 +214,7 @@ function SingleBooking() {
                 {/* start hosting information */}
                 <div className='flex flex-col mt-8'>
                   <div className='flex'>
-                    <img src={listing.hostInfo.hostImage} className='inline object-cover w-16 h-16 mr-2 rounded-full' />
+                    <img src={listing.hostInfo.hostImage} alt='' className='inline object-cover w-16 h-16 mr-2 rounded-full' />
                     <div>
                       <div className='font-semibold text-xl'>Hosted by {listing.hostInfo.name}</div>
                       <div className='text-gray'>Joined December 201{listing.hostInfo.hostResponseRating}</div>
@@ -346,15 +346,15 @@ function PhotoModal({ listings, showPhotoModal, setShowPhotoModal }) {
                   <div className='flex justify-center relative p-6 flex-auto overflow-scroll overflow-auto biggerModal'>
                     <div className='mb-5'>
                       <div className='flex'>
-                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[0]} />
-                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[1]} />
+                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[0]} alt='' />
+                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[1]} alt=''/>
                       </div>
                       <div>
-                        <img className='p-1 singleBookBigImg' src={listing.images[2]} />
+                        <img className='p-1 singleBookBigImg' src={listing.images[2]} alt=''/>
                       </div>
                       <div className='flex '>
-                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[3]} />
-                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[4]} />
+                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[3]} alt='' />
+                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[4]} alt='' />
                       </div>
                     </div>
                   </div>
