@@ -1,20 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
-// import { loadStripe } from '@stripe/stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { useLocation } from 'react-router-dom';
-import { Icon } from '@iconify/react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { ADD_FAVORITE } from '../../utils/mutations';
-import { useMutation } from '@apollo/client';
+import Auth from '../../utils/auth';
 
-// const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Reservation = () => {
-    const [addFavorite] = useMutation(ADD_FAVORITE);
     // grab info from previous loading page
     const myRef = useRef(null);
     const location = useLocation();
-    const [showPhotoModal, setShowPhotoModal] = useState(false);
+    
     const [listingData, setListingData] = useState([]);
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
@@ -23,6 +20,14 @@ const Reservation = () => {
     useEffect(() => {
         getListingData();
     }, []);
+
+    useEffect(() => {
+        if (listingData) {
+            stripePromise.then((res) => {
+                res.redirectToCheckout({ sessionId: listingData.checkout.session });
+            });
+        }
+    }, [listingData]);
 
     if (!location.state) {
         return <div>Sorry, we couldn't find that booking, go back!</div>;
@@ -46,6 +51,10 @@ const Reservation = () => {
         }
     }
 
+    function submitCheckout(listingPrice) {
+        
+    }
+
     const executeScroll = () => myRef.current.scrollIntoView();
 
     //calculate total nights
@@ -54,6 +63,10 @@ const Reservation = () => {
 
 
     //calculate total price
+
+    (function () {
+        document.getElementById("footer").style.cssText = "bottom: 0; left: 0; position: absolute;";
+    })();
 
     return (
 
@@ -128,12 +141,17 @@ const Reservation = () => {
 
 
                                     </div>
-                                    <button className='searchBtn flex rounded-lg py-4 px-32'>
-                                        <h1 className='text-white font-bold'>Reserve</h1>
-                                    </button>
+                                    {Auth.loggedIn() ? (
+                                        <button className='searchBtn flex rounded-lg py-4 px-32' onClick={submitCheckout}>
+                                            <h1 className='text-white font-bold' >Reserve</h1>
+                                            
+                                        </button>
+                                    ) : (
+                                        <span>(login to checkout)</span>
+                                    )}
                                     <div className='px-16 pt-5 text-gray'></div>
                                 </div>
-                                
+
 
                             </div>
                         </div>
