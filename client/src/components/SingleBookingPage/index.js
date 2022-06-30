@@ -11,6 +11,7 @@ function SingleBooking() {
   // grab info from previous loading page
   const myRef = useRef(null);
   const location = useLocation();
+  const [showPhotoModal, setShowPhotoModal] = useState(false);
   const [listingData, setListingData] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -99,11 +100,20 @@ function SingleBooking() {
               </div>
             </div>
             <div className='flex justify-end mr-5 z-10 showPhotos mb-10'>
-              <button className='flex border-2 rounded-lg border-black p-2 hover:bg-lightgrey bg-white '>
+              <button
+                className='flex border-2 rounded-lg border-black p-2 hover:bg-lightgrey bg-white '
+                onClick={() => setShowPhotoModal(true)}>
                 <Icon className='mr-1' icon='akar-icons:dot-grid' color='black' width='22' height='22' />
                 <div className='font-semibold'>Show all photos</div>
               </button>
             </div>
+            {showPhotoModal ? (
+              <PhotoModal
+                setShowPhotoModal={setShowPhotoModal}
+                showPhotoModal={showPhotoModal}
+                listings={listingData}
+              />
+            ) : null}
             {/* start lower part under photos */}
             <div className='mt-12  flex border-b-2 border-lightgrey w-7/12 justify-between'>
               <div className='flex justify-between '>
@@ -313,3 +323,57 @@ function SingleBooking() {
 }
 
 export default SingleBooking;
+
+function PhotoModal({ listings, showPhotoModal, setShowPhotoModal }) {
+  return (
+    <div>
+      {listings.map((listing) => {
+        return (
+          <>
+            <div className='justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none '>
+              <div className='relative w-auto my-6 mx-auto max-w-3xl w-7/12'>
+                {/*content*/}
+                <div className='border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
+                  {/*header*/}
+                  <div className='flex justify-between p-5 border-b border-solid border-slate-200 rounded-t'>
+                    <button
+                      className='p-1 ml-auto  border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none '
+                      onClick={() => setShowPhotoModal(false)}>
+                      <span classname='text-black'>x</span>
+                    </button>
+                  </div>
+                  {/*body*/}
+                  <div className='flex justify-center relative p-6 flex-auto overflow-scroll overflow-auto biggerModal'>
+                    <div className='mb-5'>
+                      <div className='flex'>
+                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[0]} />
+                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[1]} />
+                      </div>
+                      <div>
+                        <img className='p-1 singleBookBigImg' src={listing.images[2]} />
+                      </div>
+                      <div className='flex '>
+                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[3]} />
+                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[4]} />
+                      </div>
+                    </div>
+                  </div>
+                  {/*footer*/}
+                  <div className='flex items-center justify-between p-6 border-t border-solid border-slate-200 rounded-b'>
+                    <button
+                      className='bg-offBlack bg-emerald-500 text-white active:bg-emerald-600 font-bold text-md px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
+                      type='button'
+                      onClick={() => setShowPhotoModal(false)}>
+                      Show Stay
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='opacity-25 fixed inset-0 z-40 bg-black'></div>
+          </>
+        );
+      })}
+    </div>
+  );
+}

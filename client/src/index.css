@@ -75,6 +75,10 @@ code {
   margin-top: -4rem;
 }
 
+.biggerModal {
+  max-height: 30rem;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
