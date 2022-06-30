@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import FilterSearch from '../FilterSearch';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
@@ -7,7 +7,8 @@ import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 
 function BookingPage({ data }) {
-  const listings = data;
+  const [listings, setListings] = useState(data);
+  const [favorited, setFavorited] = useState();
   const location = useLocation();
   if (!location.state) {
     return <div>Sorry, no bookings here, go back!</div>;
@@ -22,13 +23,13 @@ function BookingPage({ data }) {
   });
   return (
     <div>
-      <FilterSearch />
+      <FilterSearch listings={listings} setListings={setListings} />
       <div className='flex justify-evenly mt-10 flex-wrap'>
         {filteredListings.map((listing) => {
           return (
             <div className='flex flex-col mb-10'>
               <div className='flex justify-end heart mr-3'>
-                <Icon icon='ant-design:heart-twotone' color='white' width='26' height='26' />
+                <Icon icon='ant-design:heart-twotone' color={`white`} width='26' height='26' />
               </div>
 
               <Carousel showStatus={false} width={300} showThumbs={false} className='custom-slider rounded-lg carousel'>

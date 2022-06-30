@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-function PriceSlider() {
-  const [range, setRange] = useState([0, 350]);
-
+function PriceSlider({ range, setRange }) {
   return (
     <div>
       <div className='text-3xl font-semibold'>Price Range</div>
@@ -37,12 +35,6 @@ function PriceSlider() {
       </div>
     </div>
   );
-
-  // const [state, setState] = useState({ x: 0, y: 10 });
-
-  // return (
-
-  // );
 }
 
 export default PriceSlider;

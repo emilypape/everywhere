@@ -11,7 +11,6 @@ function Login(props) {
 
     const handleFormLoginSubmit = async (event) => {
         event.preventDefault();
-        // login logic here!
         try {
             const { data } = await login({
                 variables: { ...formState },
@@ -22,7 +21,7 @@ function Login(props) {
         } catch (e) {
             console.log(e);
         }
-
+        setShowModal2(false);
     };
 
     const handleInputChange = (event) => {
@@ -63,7 +62,6 @@ function Login(props) {
                 <button
                     type="submit"
                     className="p-1 bg-red-700 text-white w-full mt-4"
-                    onClick={() => setShowModal2(false)}
                 >
                     Login
                 </button>

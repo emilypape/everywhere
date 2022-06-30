@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from '../Login';
@@ -8,12 +9,11 @@ import Signup from '../Signup';
 // import Auth from '';
 
 function Nav() {
-
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
 
   function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(' ');
   }
 
   return (
@@ -117,7 +117,6 @@ function Nav() {
                 </Menu.Item>
               </div>
               {/* ------------------ */}
-
             </Menu.Items>
           </Transition>
         </Menu>

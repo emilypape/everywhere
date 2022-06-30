@@ -21,6 +21,7 @@ function Signup(props) {
         });
         const token = mutationResponse.data.createUser.token;
         Auth.login(token);
+        setShowModal2(false);
     };
 
     const handleChange = (event) => {
@@ -68,7 +69,6 @@ function Signup(props) {
                 <button
                     type="submit"
                     className="p-1 bg-red-700 text-white w-full mt-4"
-                    onClick={() => setShowModal2(false)}
                 >
                     Submit
                 </button>

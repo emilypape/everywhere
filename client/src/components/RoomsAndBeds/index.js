@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import '../../assets/css/typeOfPlace.css';
 
-function RoomsAndBeds() {
-  const [isSelected, setIsSelected] = useState('Any');
-  const [isAlsoSelected, setIsAlsoSelected] = useState('Any');
-
+function RoomsAndBeds({ isSelected, setIsSelected, isAlsoSelected, setIsAlsoSelected }) {
   function selectedOnClick(e) {
-    setIsSelected(e.target.innerText);
+    setIsSelected(e.target.value);
   }
 
   function alsoSelectedOnClick(e) {
@@ -20,13 +17,15 @@ function RoomsAndBeds() {
           <h1 className='mb-5 text-lg mt-3'>Bedrooms</h1>
           <div>
             <button
+              value='0'
               className={`border-lightgrey border-2 rounded-full px-5 py-1 mr-2 hover:border-black ${
-                isSelected === 'Any' ? 'isSelected' : ''
+                isSelected === '0' ? 'isSelected' : ''
               }`}
               onClick={(e) => selectedOnClick(e)}>
               Any
             </button>
             <button
+              value='1'
               className={`border-lightgrey border-2 rounded-full px-5 py-1 mr-2 hover:border-black ${
                 isSelected === '1' ? 'isSelected' : ''
               }`}
@@ -34,6 +33,7 @@ function RoomsAndBeds() {
               1
             </button>
             <button
+              value='2'
               className={`border-lightgrey border-2 rounded-full px-5 py-1 mr-2 hover:border-black ${
                 isSelected === '2' ? 'isSelected' : ''
               }`}
@@ -41,6 +41,7 @@ function RoomsAndBeds() {
               2
             </button>
             <button
+              value='3'
               className={`border-lightgrey border-2 rounded-full px-5 py-1 mr-2 hover:border-black ${
                 isSelected === '3' ? 'isSelected' : ''
               }`}
@@ -48,6 +49,7 @@ function RoomsAndBeds() {
               3
             </button>
             <button
+              value='4'
               className={`border-lightgrey border-2 rounded-full px-5 py-1 mr-2 hover:border-black ${
                 isSelected === '4' ? 'isSelected' : ''
               }`}
@@ -55,6 +57,7 @@ function RoomsAndBeds() {
               4
             </button>
             <button
+              value='5'
               className={`border-lightgrey border-2 rounded-full px-5 py-1 mr-2 hover:border-black ${
                 isSelected === '5' ? 'isSelected' : ''
               }`}
@@ -62,6 +65,7 @@ function RoomsAndBeds() {
               5
             </button>
             <button
+              value='6'
               className={`border-lightgrey border-2 rounded-full px-5 py-1 mr-2 hover:border-black ${
                 isSelected === '6' ? 'isSelected' : ''
               }`}
@@ -69,6 +73,7 @@ function RoomsAndBeds() {
               6
             </button>
             <button
+              value='7'
               className={`border-lightgrey border-2 rounded-full px-5 py-1 mr-2 hover:border-black ${
                 isSelected === '7' ? 'isSelected' : ''
               }`}
@@ -76,8 +81,9 @@ function RoomsAndBeds() {
               7
             </button>
             <button
+              value='8'
               className={`border-lightgrey border-2 rounded-full px-5 py-1 mr-2 hover:border-black ${
-                isSelected === '8+' ? 'isSelected' : ''
+                isSelected === '8' ? 'isSelected' : ''
               }`}
               onClick={(e) => selectedOnClick(e)}>
               8+
