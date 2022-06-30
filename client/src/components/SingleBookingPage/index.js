@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ADD_FAVORITE } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
+import { Link } from 'react-router-dom';
 
 function SingleBooking() {
   const [addFavorite] = useMutation(ADD_FAVORITE);
@@ -28,7 +29,7 @@ function SingleBooking() {
   const postFavorite = async (e, favoriteId) => {
     e.preventDefault();
     try {
-      await addFavorite({ variables: {favoriteId} });
+      await addFavorite({ variables: { favoriteId } });
     } catch (error) {
       console.log(error);
     }
@@ -53,6 +54,7 @@ function SingleBooking() {
   }
 
   const executeScroll = () => myRef.current.scrollIntoView();
+
 
   return (
     <div>
@@ -301,9 +303,11 @@ function SingleBooking() {
                       </div>
                     </form>
                   </div>
+                  <Link to='/Reservation' state={listing.id}>
                   <button className='searchBtn flex rounded-lg py-4 px-32'>
                     <h1 className='text-white font-bold'>Reserve</h1>
                   </button>
+                  </Link>
                   <div className='px-16 pt-5 text-gray'>You won't be charged yet</div>
                 </div>
                 <div className='flex border-lightgrey border-2 rounded-lg p-5 mt-10'>
@@ -347,10 +351,10 @@ function PhotoModal({ listings, showPhotoModal, setShowPhotoModal }) {
                     <div className='mb-5'>
                       <div className='flex'>
                         <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[0]} alt='' />
-                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[1]} alt=''/>
+                        <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[1]} alt='' />
                       </div>
                       <div>
-                        <img className='p-1 singleBookBigImg' src={listing.images[2]} alt=''/>
+                        <img className='p-1 singleBookBigImg' src={listing.images[2]} alt='' />
                       </div>
                       <div className='flex '>
                         <img className='p-1 w-96 h-64 singleBookSmallImg' src={listing.images[3]} alt='' />

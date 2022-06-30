@@ -92,3 +92,7 @@ code {
 .ProseMirror-focused {
   @apply shadow-none ring-0 border-0 outline-none;
 }
+
+iframe {
+  visibility: hidden;
+}

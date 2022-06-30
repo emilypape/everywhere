@@ -45,12 +45,14 @@ function BookingPage({ data }) {
     updatedFavoritesArray[i] = !updatedFavoritesArray[i];
     setFavoritesArray(updatedFavoritesArray);
 
+
     try {
       await addFavorites({ variables: { favoriteId } });
     } catch (error) {
       console.log(error);
     }
   };
+  console.log (favoritesArray);
 
   return (
     <div>
