@@ -23,3 +23,17 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_FAVORITE = gql`
+  mutation addFavorite($favoriteId: String!) {
+    addFavorite(favoriteId: $favoriteId) {
+      user {
+        username
+        _id
+        favorites {
+          favoriteId
+        }
+      }
+    }
+  }
+`;

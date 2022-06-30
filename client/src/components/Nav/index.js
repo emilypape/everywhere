@@ -19,14 +19,16 @@ function Nav() {
   return (
     <div className='mb-7'>
       <div className='flex mt-4 justify-between'>
-        <div className='flex'>
-          <Icon className='p-1 text-5xl ml-3' icon='wpf:worldwide-location' color='#ff385c' />
-          <h1 className='text-coral font-bold p-1 text-2xl'>everywhere</h1>
-        </div>
-        <Menu as="div" className="z-50 relative right-3 inline-block text-left">
+        <Link to='/'>
+          <div className='flex'>
+            <Icon className='p-1 text-5xl ml-3' icon='wpf:worldwide-location' color='#ff385c' />
+            <h1 className='text-coral font-bold p-1 text-2xl'>everywhere</h1>
+          </div>
+        </Link>
+        <Menu as='div' className='z-50 relative right-3 inline-block text-left'>
           <div>
-            <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-              |||
+            <Menu.Button className='inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-coral'>
+              &#9776;
             </Menu.Button>
           </div>
 
@@ -125,10 +127,10 @@ function Nav() {
             <div className='justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none'>
               <div className='relative w-auto my-6 mx-auto max-w-3xl '>
                 {/*content*/}
-                <div className='border-4 border-black px-1 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
+                <div className=' px-4 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
                   {/*header*/}
                   <div className='flex justify-between p-5 border-b border-solid border-slate-200 rounded-t'>
-                    <div className='text-xl'>Sign Up</div>
+                    <div className='text-xl font-semibold'>Sign Up</div>
                     <button
                       className='p-1 ml-auto  border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none '
                       onClick={() => setShowModal(false)}>
@@ -146,12 +148,12 @@ function Nav() {
         {showModal2 ? (
           <>
             <div className='justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none'>
-              <div className='relative w-auto my-6 mx-auto max-w-3xl '>
+              <div className='relative w-auto my-6 mx-auto max-w-3xl'>
                 {/*content*/}
-                <div className='border-4 border-black px-1 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
+                <div className=' px-4 py-2 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
                   {/*header*/}
                   <div className='flex justify-between p-5 border-b border-solid border-slate-200 rounded-t'>
-                    <div className='text-xl'>Login Please</div>
+                    <div className='text-xl font-semibold'>Login</div>
                     <button
                       className='ml-auto  border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none '
                       onClick={() => setShowModal2(false)}>
