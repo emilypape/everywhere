@@ -1,27 +1,25 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Link } from 'react-router-dom';
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 function Signup(props) {
     const [showModal2, setShowModal2] = useState(false);
-
     const [formState, setFormState] = useState({username: '', email: '', password: '' });
-    const [addUser] = useMutation(ADD_USER);
+    const [createUser] = useMutation(ADD_USER);
 
     const handleFormSignupSubmit = async (event) => {
         event.preventDefault();
 
         // signup logic here!
-        const mutationResponse = await addUser({
+        const mutationResponse = await createUser({
             variables: {
                 username: formState.username,
                 email: formState.email,
                 password: formState.password
             },
         });
-        const token = mutationResponse.data.addUser.token;
+        const token = mutationResponse.data.createUser.token;
         Auth.login(token);
     };
 
@@ -29,9 +27,6 @@ function Signup(props) {
         const { name, value } = event.target;
         setFormState({ ...formState, [name]: value });
     }
-
-
-
 
     return (
         <form onSubmit={handleFormSignupSubmit}>

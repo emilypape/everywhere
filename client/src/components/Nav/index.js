@@ -11,32 +11,6 @@ function Nav() {
 
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
-  // const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  // const [userFormData2, setUserFormData2] = useState({ username: '', email: '', password: '' });
-
-  // const handleFormLoginSubmit = async (event) => {
-  //   event.preventDefault();
-
-  //   // login logic here!
-
-  // }
-
-  // const handleFormSignupSubmit = async (event) => {
-  //   event.preventDefault();
-
-  //   // signup logic here!
-
-  // }
-
-  // const handleInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setUserFormData({ ...userFormData, [name]: value} );
-  // }
-
-  // const handleInputSignupChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setUserFormData2({ ...userFormData2, [name]: value} );
-  // }
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -159,15 +133,11 @@ function Nav() {
                     <button
                       className='p-1 ml-auto  border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none '
                       onClick={() => setShowModal(false)}>
-                      <span classname='text-black'>x</span>
+                      <span className='text-black'>x</span>
                     </button>
                   </div>
                   {/*body*/}
-                  <Router>
-                    <Routes>
-                      <Route path='/Signup' element={<Signup />} />
-                    </Routes>
-                  </Router>
+                  <Signup />
                 </div>
               </div>
             </div>
@@ -186,15 +156,11 @@ function Nav() {
                     <button
                       className='ml-auto  border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none '
                       onClick={() => setShowModal2(false)}>
-                      <span classname='text-black'>x</span>
+                      <span className='text-black'>x</span>
                     </button>
                   </div>
                   {/*body*/}
-                  <Router>
-                    <Routes>
-                    <Route path='/Login' element={<Login />} />
-                    </Routes>
-                  </Router>
+                  <Login />
                 </div>
               </div>
             </div>

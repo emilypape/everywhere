@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { LOGIN } from '../../utils/mutations';
+import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 function Login(props) {
     const [showModal2, setShowModal2] = useState(false);
 
     const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, { error }] = useMutation(LOGIN);
+    const [login] = useMutation(LOGIN_USER);
 
     const handleFormLoginSubmit = async (event) => {
         event.preventDefault();
-
         // login logic here!
         try {
-            const mutationResponse = await login({
-                variables: { email: formState.email, pasword: formState.password },
+            const { data } = await login({
+                variables: { ...formState },
             });
-            const token = mutationResponse.data.login.token;
+            const token = data.login.token;
+            console.log(token);
             Auth.login(token);
         } catch (e) {
             console.log(e);
@@ -33,17 +33,13 @@ function Login(props) {
         });
     };
 
-
-
-
-
-
     return (
         <form onSubmit={handleFormLoginSubmit}>
             <input
                 type="text"
                 placeholder="Your email"
                 name="email"
+                id='email'
                 onChange={handleInputChange}
                 value={formState.email}
                 className="text-sm text-gray-base w-full 
