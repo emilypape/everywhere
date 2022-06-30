@@ -2,36 +2,15 @@ import React, { useState, Fragment } from 'react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from '../Login';
+import Signup from '../Signup';
 
 // import Auth from '';
 
 function Nav() {
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
-  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  const [userFormData2, setUserFormData2] = useState({ username: '', email: '', password: '' });
-
-  const handleFormLoginSubmit = async (event) => {
-    event.preventDefault();
-
-    // login logic here!
-  };
-
-  const handleFormSignupSubmit = async (event) => {
-    event.preventDefault();
-
-    // signup logic here!
-  };
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
-  };
-
-  const handleInputSignupChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData2({ ...userFormData2, [name]: value });
-  };
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
@@ -55,23 +34,26 @@ function Nav() {
 
           <Transition
             as={Fragment}
-            enter='transition ease-out duration-100'
-            enterFrom='transform opacity-0 scale-95'
-            enterTo='transform opacity-100 scale-100'
-            leave='transition ease-in duration-75'
-            leaveFrom='transform opacity-100 scale-100'
-            leaveTo='transform opacity-0 scale-95'>
-            <Menu.Items className='origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none'>
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
+          >
+            <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none">
+
               {/* When loggedIn = false */}
-              <div className='py-1'>
+              <div className="py-1">
                 <Menu.Item>
                   {({ active }) => (
                     <a
                       onClick={() => setShowModal(true)}
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
-                      )}>
+                        'block px-4 py-2 text-sm'
+                      )}
+                    >
                       Sign-up
                     </a>
                   )}
@@ -82,8 +64,9 @@ function Nav() {
                       onClick={() => setShowModal2(true)}
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
-                      )}>
+                        'block px-4 py-2 text-sm'
+                      )}
+                    >
                       Login
                     </a>
                   )}
@@ -92,15 +75,16 @@ function Nav() {
               {/* ------------------ */}
 
               {/* When loggedIn = true */}
-              <div className='py-1'>
+              <div className="py-1">
                 <Menu.Item>
                   {({ active }) => (
                     <a
-                      href='/'
+                      href="/"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
-                      )}>
+                        'block px-4 py-2 text-sm'
+                      )}
+                    >
                       Trips
                     </a>
                   )}
@@ -108,25 +92,27 @@ function Nav() {
                 <Menu.Item>
                   {({ active }) => (
                     <a
-                      href='/'
+                      href="/"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
-                      )}>
+                        'block px-4 py-2 text-sm'
+                      )}
+                    >
                       Favorites
                     </a>
                   )}
                 </Menu.Item>
               </div>
-              <div className='py-1'>
+              <div className="py-1">
                 <Menu.Item>
                   {({ active }) => (
                     <a
-                      href='/'
+                      href="/"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
-                      )}>
+                        'block px-4 py-2 text-sm'
+                      )}
+                    >
                       Sign-out
                     </a>
                   )}
@@ -148,54 +134,11 @@ function Nav() {
                     <button
                       className='p-1 ml-auto  border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none '
                       onClick={() => setShowModal(false)}>
-                      <span classname='text-black'>x</span>
+                      <span className='text-black'>x</span>
                     </button>
                   </div>
                   {/*body*/}
-                  <form onSubmit={handleFormSignupSubmit}>
-                    <input
-                      type='text'
-                      placeholder='Username'
-                      name='username'
-                      onChange={handleInputSignupChange}
-                      value={userFormData2.username}
-                      className='text-sm text-gray-base w-full 
-                      mr-3 py-5 px-4 h-2 border 
-                      border-gray rounded mb-2'
-                      required
-                    />
-                    <input
-                      type='text'
-                      placeholder='Email address'
-                      name='email'
-                      onChange={handleInputSignupChange}
-                      value={userFormData2.email}
-                      className='text-sm text-gray-base w-full 
-                      mr-3 py-5 px-4 h-2 border 
-                      border-gray rounded mb-2'
-                      required
-                    />
-                    <input
-                      type='password'
-                      placeholder='Password'
-                      name='password'
-                      onChange={handleInputSignupChange}
-                      value={userFormData2.password}
-                      className='text-sm text-gray-base w-full mr-3 
-                      py-5 px-4 h-2 border border-gray 
-                      rounded mb-2'
-                      required
-                    />
-                    {/*footer*/}
-                    <div className='flex items-center justify-between p-6 border-t border-solid border-slate-200 rounded-b'>
-                      <button
-                        type='submit'
-                        className='p-1 bg-coral text-white w-full mt-4 rounded-lg'
-                        onClick={() => setShowModal2(false)}>
-                        Submit
-                      </button>
-                    </div>
-                  </form>
+                  <Signup />
                 </div>
               </div>
             </div>
@@ -214,43 +157,11 @@ function Nav() {
                     <button
                       className='ml-auto  border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none '
                       onClick={() => setShowModal2(false)}>
-                      <span classname='text-black'>x</span>
+                      <span className='text-black'>x</span>
                     </button>
                   </div>
                   {/*body*/}
-                  <form onSubmit={handleFormLoginSubmit}>
-                    <input
-                      type='text'
-                      placeholder='email'
-                      name='email'
-                      onChange={handleInputChange}
-                      value={userFormData.email}
-                      className='text-sm text-gray-base w-full 
-                      mr-3 py-5 px-8 h-2 border 
-                      border-gray rounded mb-2'
-                      required
-                    />
-                    <input
-                      type='password'
-                      placeholder='password'
-                      name='password'
-                      onChange={handleInputChange}
-                      value={userFormData.password}
-                      className='text-sm text-gray-base w-full mr-3 
-                      py-5 px-8 h-2 border border-gray 
-                      rounded mb-2'
-                      required
-                    />
-                    {/*footer*/}
-                    <div className='flex items-center justify-between p-6 border-t border-solid border-slate-200 rounded-b'>
-                      <button
-                        type='submit'
-                        className='p-1 bg-coral text-white w-full mt-4 rounded-lg'
-                        onClick={() => setShowModal2(false)}>
-                        Login
-                      </button>
-                    </div>
-                  </form>
+                  <Login />
                 </div>
               </div>
             </div>
