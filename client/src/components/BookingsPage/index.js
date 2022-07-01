@@ -45,17 +45,16 @@ function BookingPage({ data }) {
     updatedFavoritesArray[i] = !updatedFavoritesArray[i];
     setFavoritesArray(updatedFavoritesArray);
 
-
     try {
       await addFavorites({ variables: { favoriteId } });
     } catch (error) {
       console.log(error);
     }
   };
-  console.log (favoritesArray);
+  console.log(favoritesArray);
 
   return (
-    <div>
+    <div className='mb-64'>
       <FilterSearch listings={listings} setListings={setListings} />
       <div className='flex justify-evenly mt-10 flex-wrap'>
         {filteredListings.map((listing, i) => {
