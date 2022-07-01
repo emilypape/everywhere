@@ -64,9 +64,9 @@ const Reservation = () => {
 
     //calculate total price
 
-    (function () {
-        document.getElementById("footer").style.cssText = "bottom: 0; left: 0; position: absolute;";
-    })();
+    // (function () {
+    //     document.getElementById("footer").style.cssText = "bottom: 0; left: 0; position: absolute;";
+    // })();
 
     return (
 
@@ -142,7 +142,7 @@ const Reservation = () => {
 
                                     </div>
                                     {Auth.loggedIn() ? (
-                                        <button className='searchBtn flex rounded-lg py-4 px-32' onClick={submitCheckout}>
+                                        <button className='searchBtn flex rounded-lg py-4 px-32' onClick={() => submitCheckout(listing.price)}>
                                             <h1 className='text-white font-bold' >Reserve</h1>
                                             
                                         </button>

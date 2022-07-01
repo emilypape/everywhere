@@ -5,6 +5,16 @@ const typeDefs = gql`
         favoriteId: String
     }
 
+    type Checkout {
+        session: ID
+    }
+
+    type Order {
+        _id: ID
+        purchaseDate: String
+        totalCost: String
+    }
+
     type User {
         _id: ID
         username: String
@@ -21,10 +31,14 @@ const typeDefs = gql`
         me: User
         getSingleUser(username: String!): User
         getAllUsers: [User]
+        user: User
+        order(_id: ID!): Order
+        checkout(price: String!): Checkout
     }
 
     type Mutation {
         createUser(email: String!, username: String!, password: String!): Auth
+        addOrder(price: String!): Order
         login(email: String!, password: String!): Auth
         addFavorite(favoriteId: String!): User
         deleteFavorite(favoriteId: String!): User
