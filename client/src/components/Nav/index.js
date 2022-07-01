@@ -1,8 +1,7 @@
 import React, { useState, Fragment } from 'react';
-import { Icon } from '@iconify/react';
+// import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from '../Login';
 import Signup from '../Signup';
 import Auth from '../../utils/auth';
@@ -20,7 +19,7 @@ function Nav() {
       <div className='flex mt-4 justify-between'>
         <Link to='/'>
           <div className='flex'>
-            <Icon className='p-1 text-5xl ml-3' icon='wpf:worldwide-location' color='#ff385c' />
+            {/* <Icon className='p-1 text-5xl ml-3' icon='wpf:worldwide-location' color='#ff385c' /> */}
             <h1 className='text-coral font-bold p-1 text-2xl'>everywhere</h1>
           </div>
         </Link>

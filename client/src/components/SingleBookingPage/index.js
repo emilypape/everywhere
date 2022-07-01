@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Icon } from '@iconify/react';
+// import { Icon } from '@iconify/react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ADD_FAVORITE } from '../../utils/mutations';
@@ -77,14 +77,14 @@ function SingleBooking() {
                 </div>
               </div>
               <div className='flex mb-5 mt-2'>
-                <Icon
+                {/* <Icon
                   className='mr-1 ml-96'
                   icon='ant-design:heart-twotone'
                   color='black'
                   width='24'
                   height='24'
                   onClick={event => postFavorite(event, listing._id)}
-                />
+                /> */}
                 <div className='underline font-semibold hover:text-coral'>Save</div>
               </div>
             </div>
