@@ -55,7 +55,6 @@ function SingleBooking() {
 
   const executeScroll = () => myRef.current.scrollIntoView();
 
-
   return (
     <div>
       {/* map through and append information */}
@@ -97,8 +96,18 @@ function SingleBooking() {
                 <img className='pr-1 pt-1 singleBookSmallImg' width={944} src={listing.images[2]} alt='' />
               </div>
               <div className='flex flex-col'>
-                <img className='rounded-tr-lg pb-1 pl-1 singleBookSmallImg' width={944} src={listing.images[3]} alt='' />
-                <img className='rounded-br-lg pl-1 pt-1 singleBookSmallImg' width={944} src={listing.images[4]} alt='' />
+                <img
+                  className='rounded-tr-lg pb-1 pl-1 singleBookSmallImg'
+                  width={944}
+                  src={listing.images[3]}
+                  alt=''
+                />
+                <img
+                  className='rounded-br-lg pl-1 pt-1 singleBookSmallImg'
+                  width={944}
+                  src={listing.images[4]}
+                  alt=''
+                />
               </div>
             </div>
             <div className='flex justify-end mr-5 z-10 showPhotos mb-10'>
@@ -129,7 +138,11 @@ function SingleBooking() {
                 </div>
               </div>
               <div className='ml-32'>
-                <img className='inline object-cover w-16 h-16 mr-2 rounded-full' src={listing.hostInfo.hostImage} alt='' />
+                <img
+                  className='inline object-cover w-16 h-16 mr-2 rounded-full'
+                  src={listing.hostInfo.hostImage}
+                  alt=''
+                />
               </div>
             </div>
             {/* start form */}
@@ -216,7 +229,11 @@ function SingleBooking() {
                 {/* start hosting information */}
                 <div className='flex flex-col mt-8'>
                   <div className='flex'>
-                    <img src={listing.hostInfo.hostImage} alt='' className='inline object-cover w-16 h-16 mr-2 rounded-full' />
+                    <img
+                      src={listing.hostInfo.hostImage}
+                      alt=''
+                      className='inline object-cover w-16 h-16 mr-2 rounded-full'
+                    />
                     <div>
                       <div className='font-semibold text-xl'>Hosted by {listing.hostInfo.name}</div>
                       <div className='text-gray'>Joined December 201{listing.hostInfo.hostResponseRating}</div>
@@ -304,9 +321,9 @@ function SingleBooking() {
                     </form>
                   </div>
                   <Link to='/Reservation' state={listing.id}>
-                  <button className='searchBtn flex rounded-lg py-4 px-32'>
-                    <h1 className='text-white font-bold'>Reserve</h1>
-                  </button>
+                    <button className='searchBtn flex rounded-lg py-4 px-32'>
+                      <h1 className='text-white font-bold'>Reserve</h1>
+                    </button>
                   </Link>
                   <div className='px-16 pt-5 text-gray'>You won't be charged yet</div>
                 </div>
