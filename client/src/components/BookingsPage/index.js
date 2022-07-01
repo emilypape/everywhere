@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import FilterSearch from '../FilterSearch';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-// import { Icon } from '@iconify/react';
+import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import { ADD_FAVORITE } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
@@ -61,7 +61,7 @@ function BookingPage({ data }) {
           return (
             <div className='flex flex-col mb-10'>
               <div className='flex justify-end heart mr-3'>
-                {/* <Icon
+                <Icon
                   value='favorite'
                   id={listing.id}
                   icon='ant-design:heart-twotone'
@@ -70,7 +70,7 @@ function BookingPage({ data }) {
                   height='26'
                   onClick={(event) => postFavorite(event, listing._id, i)}
                   key={listing.id}
-                /> */}
+                />
               </div>
 
               <Carousel showStatus={false} width={300} showThumbs={false} className='custom-slider rounded-lg carousel'>
