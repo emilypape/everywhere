@@ -85,7 +85,7 @@ const resolvers = {
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $addToSet: { favorites: {favoriteId: args.favoriteId} }},
+                    { $addToSet: { favorites: {favoriteId: args.favoriteId, favoriteTitle: args.favoriteTitle, favoritePhoto: args.favoritePhoto, favoritePrice: args.favoritePrice} }},
                     { new: true })
                     .select('-__v -password')
                     .populate('favorites');

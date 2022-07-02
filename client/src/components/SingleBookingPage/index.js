@@ -26,10 +26,15 @@ function SingleBooking() {
     return <div>Sorry, we couldn't find that booking, go back!</div>;
   }
 
-  const postFavorite = async (e, favoriteId) => {
+  const postFavorite = async (e, listingInfo) => {
     e.preventDefault();
     try {
-      await addFavorite({ variables: { favoriteId } });
+      await addFavorite({ variables: { 
+        favoriteId: listingInfo._id, 
+        favoriteTitle: listingInfo.title, 
+        favoritePhoto: listingInfo.images[0].toString(), 
+        favoritePrice: listingInfo.price.toString() 
+      }});
     } catch (error) {
       console.log(error);
     }
@@ -82,7 +87,7 @@ function SingleBooking() {
                   color='black'
                   width='24'
                   height='24'
-                  onClick={event => postFavorite(event, listing._id)}
+                  onClick={event => postFavorite(event, listing)}
                 />
                 <div className='underline font-semibold hover:text-coral'>Save</div>
               </div>

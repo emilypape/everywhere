@@ -25,11 +25,14 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_FAVORITE = gql`
-mutation addFavorite($favoriteId: String!) {
-  addFavorite(favoriteId: $favoriteId) {
+mutation addFavorite($favoriteId: String!, $favoriteTitle: String!, $favoritePhoto: String!, $favoritePrice: String!) {
+  addFavorite(favoriteId: $favoriteId, favoriteTitle: $favoriteTitle, favoritePhoto: $favoritePhoto, favoritePrice: $favoritePrice) {
     _id
     favorites {
       favoriteId
+      favoriteTitle
+      favoritePhoto
+      favoritePrice
     }
   }
 }

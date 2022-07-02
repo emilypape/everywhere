@@ -39,14 +39,18 @@ function BookingPage({ data }) {
   const displayStartDate = startDate.toString().slice(4, 11);
   const displayEndDate = endDate.toString().slice(4, 11);
 
-  const postFavorite = async (e, favoriteId, i) => {
+  const postFavorite = async (e, listingInfo, i) => {
     e.preventDefault();
     const updatedFavoritesArray = [...favoritesArray];
     updatedFavoritesArray[i] = !updatedFavoritesArray[i];
     setFavoritesArray(updatedFavoritesArray);
-
     try {
-      await addFavorites({ variables: { favoriteId } });
+      await addFavorites({ variables: { 
+        favoriteId: listingInfo._id, 
+        favoriteTitle: listingInfo.title, 
+        favoritePhoto: listingInfo.images[0].toString(), 
+        favoritePrice: listingInfo.price.toString() 
+      }});
     } catch (error) {
       console.log(error);
     }
@@ -68,7 +72,7 @@ function BookingPage({ data }) {
                   color={favoritesArray[i] ? '#fa385c' : 'white'}
                   width='26'
                   height='26'
-                  onClick={(event) => postFavorite(event, listing._id, i)}
+                  onClick={(event) => postFavorite(event, listing, i)}
                   key={listing.id}
                 />
               </div>

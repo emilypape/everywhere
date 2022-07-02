@@ -3,6 +3,9 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
     type Favorite {
         favoriteId: String
+        favoriteTitle: String
+        favoritePhoto: String
+        favoritePrice: String
     }
 
     type Checkout {
@@ -20,6 +23,7 @@ const typeDefs = gql`
         username: String
         email: String
         favorites: [Favorite]
+        orders: [Order]
     }
 
     type Auth {
@@ -40,7 +44,7 @@ const typeDefs = gql`
         createUser(email: String!, username: String!, password: String!): Auth
         addOrder(price: String!): Order
         login(email: String!, password: String!): Auth
-        addFavorite(favoriteId: String!): User
+        addFavorite(favoriteId: String!, favoriteTitle: String, favoritePhoto: String, favoritePrice: String): User
         deleteFavorite(favoriteId: String!): User
     }
 `;
