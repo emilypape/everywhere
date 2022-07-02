@@ -4,10 +4,17 @@ import { useLocation } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Auth from '../../utils/auth';
+import { useLazyQuery } from '@apollo/client';
+import { QUERY_CHECKOUT } from '../../utils/queries';
+import { useSelector, useDispatch } from 'react-redux'
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Reservation = () => {
+  const dispatch = useDispatch();
+  const cartStore = useSelector(state => state.cart);
+  const cart = cartStore.cart;
+  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
   // grab info from previous loading page
   const myRef = useRef(null);
   const location = useLocation();
@@ -15,19 +22,22 @@ const Reservation = () => {
   const [listingData, setListingData] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-
+  console.log(cartStore)
   // grab fetch information for state
   useEffect(() => {
     getListingData();
   }, []);
 
   useEffect(() => {
-    if (listingData) {
+    if (data) {
       stripePromise.then((res) => {
-        res.redirectToCheckout({ sessionId: listingData.checkout.session });
+        res.redirectToCheckout({ sessionId: data.checkout.session });
       });
     }
-  }, [listingData]);
+    dispatch({
+      type: "CLEAR_CART"
+    })
+  }, [data]);
 
   if (!location.state) {
     return <div>Sorry, we couldn't find that booking, go back!</div>;
@@ -51,7 +61,18 @@ const Reservation = () => {
     }
   }
 
-  function submitCheckout(listingPrice) {}
+  function submitCheckout(listingInfo, days) {
+    console.log('Information: ', listingInfo.title, days)
+    const totalPrice = listingInfo.price * days * 100;
+    const orderTitle = listingInfo.title;
+    dispatch({
+      type: "ADD_TO_CART",
+      order: {title: orderTitle, price:totalPrice}
+    })
+    getCheckout({
+      variables: {title: orderTitle, price: totalPrice.toString()}
+    })
+  }
 
   const executeScroll = () => myRef.current.scrollIntoView();
 
@@ -136,7 +157,7 @@ const Reservation = () => {
                   {Auth.loggedIn() ? (
                     <button
                       className='searchBtn flex rounded-lg py-4 px-32'
-                      onClick={() => submitCheckout(listing.price)}>
+                      onClick={() => submitCheckout(listing, diffDays)}>
                       <h1 className='text-white font-bold'>Reserve</h1>
                     </button>
                   ) : (

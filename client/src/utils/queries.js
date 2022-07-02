@@ -66,3 +66,11 @@ export const QUERY_ORDERS = gql`
     }
   }
 `;
+
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($title: String!, $price: String!) {
+    checkout(title: $title, price: $price) {
+      session
+    }
+  }
+`;

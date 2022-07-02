@@ -7,6 +7,9 @@ const orderSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    title: {
+        type: String
+    },
     totalCost: {
         type: String
     }

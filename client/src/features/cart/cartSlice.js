@@ -1,6 +1,5 @@
 import {
     ADD_TO_CART,
-    REMOVE_FROM_CART,
     CLEAR_CART,
   } from "../../utils/actions";
 
@@ -13,17 +12,7 @@ const initialState = {
         case ADD_TO_CART:
             return {
               ...state,
-              cart: [...state.cart, action.product],
-            };
-      
-          case REMOVE_FROM_CART:
-            let newState = state.cart.filter(product => {
-              return product._id !== action._id;
-            });
-      
-            return {
-              ...state,
-              cart: newState
+              cart: [...state.cart, action.order],
             };
       
           case CLEAR_CART:

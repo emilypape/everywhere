@@ -13,7 +13,6 @@ function BookingPage({ data }) {
   const [filteredListings, setFilteredListings] = useState([]);
   const [favoritesArray, setFavoritesArray] = useState([]);
   const [listings, setListings] = useState(data);
-  const [favorited, setFavorited] = useState();
   const location = useLocation();
 
   useEffect(() => {

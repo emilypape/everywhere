@@ -31,11 +31,12 @@ const resolvers = {
             }
             throw new AuthenticationError('Not logged In')
         },
-        checkout: async (parent, { price }, context) => {
+        checkout: async (parent, { title, price }, context) => {
+            const url = new URL(context.headers.referer).origin;
             const line_items = [];
-            const order = new Order({ totalCost: price})
+            const order = new Order({ title: title, totalCost: price})
             const product = await stripe.products.create({
-                name: 'AirBNB Stay'
+                name: title
             })
             const prices = await stripe.prices.create({
                 product: product.id,
@@ -50,8 +51,8 @@ const resolvers = {
                 payment_method_types: ['card'],
                 line_items,
                 mode: 'payment',
-                success_url: 'https://immense-hamlet-26327.herokuapp.com/',
-                cancel_url: 'https://immense-hamlet-26327.herokuapp.com/'
+                success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+                cancel_url: `${url}/`
             });
 
             return {session: session.id}

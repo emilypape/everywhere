@@ -1,7 +1,7 @@
 import { UPDATE_CURRENT_LISTING } from "../../utils/actions";
 
 const initialState = {
-    currentListing: ''
+    currentListing: {}
 }
 
 export default function currentReducer(state = initialState, action) {
