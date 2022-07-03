@@ -75,6 +75,9 @@ code {
   margin-top: -4rem;
 }
 
+.shadowing {
+  box-shadow: 0.1px 1px 12px 1px grey;
+}
 .biggerModal {
   max-height: 30rem;
 }
@@ -92,4 +95,3 @@ code {
 .ProseMirror-focused {
   @apply shadow-none ring-0 border-0 outline-none;
 }
-

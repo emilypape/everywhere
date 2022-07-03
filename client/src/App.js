@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client'
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
@@ -9,6 +9,7 @@ import Favorites from './components/Favorites';
 import BookingPage from './components/BookingsPage';
 import SingleBooking from './components/SingleBookingPage';
 import Reservation from './components/Reservation';
+import SuccessPage from './components/SuccessPage';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -19,16 +20,15 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : ''
-    }
-  }
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
 });
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
 
 function App() {
   const [data, setData] = useState([]);
@@ -53,19 +53,20 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-    <Router>
-      <div>
-        <Nav />
-        <Routes>
-          <Route path='/' element={<Homepage data={data} />} />
-          <Route path='/BookingPage' element={<BookingPage data={data} />} />
-          <Route path='/SingleBooking' element={<SingleBooking />} />
-          <Route path='/Reservation' element={<Reservation/>} />
-          <Route path='/Favorites' element={<Favorites />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+      <Router>
+        <div>
+          <Nav />
+          <Routes>
+            <Route path='/' element={<Homepage data={data} />} />
+            <Route path='/BookingPage' element={<BookingPage data={data} />} />
+            <Route path='/SingleBooking' element={<SingleBooking />} />
+            <Route path='/Reservation' element={<Reservation />} />
+            <Route path='/Favorites' element={<Favorites />} />
+            <Route path='/Success' element={<SuccessPage />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
     </ApolloProvider>
   );
 }
