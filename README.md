@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+# Everywhere
+![Unlicense badge](https://img.shields.io/badge/License-Unlicense-success)
+## Table of Contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Description](#description)
+- [Contributors](#contributors)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contact Information](#contact)
+- [License](#license)
 
-## Available Scripts
+## Deployed Website
 
-In the project directory, you can run:
+https://stark-harbor-20365.herokuapp.com/
 
-### `npm start`
+## API Server
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+https://immense-hamlet-26327.herokuapp.com
+## Description
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Everywhere is an AirBNB clone built from scratch for a project in the UofU bootcamp for Web development. The layout and functionality is meant to mimic as closely as possible the AirBNB.com experience. Nothing was taken from AirBNB besides the inspiration for the presentation so everything is built from the ground up from our team.
 
-### `npm test`
+ When you first enter into the webpage you will be greeted by our friendly homepage where you can specify a location and duration as well as the number of occupants you'd like to have with your stay.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![homepage view](assets/images/home-Page.png)
 
-### `npm run build`
+In the top corner you will see a hamburger menu icon that will allow you to login or signup if you have not before
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![login modal](assets/images/login-modal.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+After doing so you can search without entering anything into the location view and it will allow you to see the many listings we have populated on the site. All listings are just temporary data and can easily be adjusted to fit whichever API you decide to use.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![bookings page](assets/images/bookings-page.png)
 
-### `npm run eject`
+When you find a booking you like you can select it and be taken to the information page about the booking.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![single listing page](assets/images/single-booking-page.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Also if you like the listing but don't have the opportunity to check out at this moment you can save it to favorites to view at a later time.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![favorites page view](assets/images/favorites-page.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ After you push reserve you will be taken to a reservation page where you can confirm all the information about your stay.
 
-## Learn More
+![reservation page](assets/images/reservation-page.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+After clicking reserve you will be taken to the stripe checkout page where you can enter in your information and pay for your booking.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![checkout](assets/images/stripe-checkout.png)
 
-### Code Splitting
+Upon successful payment you will be taken back to the website where you will recieve a confirmation of successfull payment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![successful payment](assets/images/payment-success-page.png)
 
-### Analyzing the Bundle Size
+Should you also want to see listings that fit within a certain budget or have specific details with them you can use the filter modal on the bookings page to narrow down your search.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![filters modal](assets/images/filters-modal.png)
 
-### Making a Progressive Web App
+Thank you very much for reviewing our application. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contributors
 
-### Advanced Configuration
+- David Samuelson
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Emily Pape
 
-### Deployment
+- Holdan McMullen
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Eric Shumway
 
-### `npm run build` fails to minify
+- Juliana Wilcox
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Features
+
+- Uses React and is completely an SPA
+
+- Uses Redux global state management
+
+- Uses Apollo server and graphql API for data retrieval.
+
+## Installation
+
+- Copy the repo to a local repository
+
+- run npm install in the base directory outside of the client and server files.
+
+- You may need to adjust the api calls if you don't want to use the deployed test server we made for the project
+
+## Usage
+
+- After running npm install then run npm run develop and that will start both the backend server and the client side page.
+
+- this is deployed so if you'd like just use the deployed site 
+
+## Contact
+
+linksn.1fan@gmail.com
+
+GitHub: https://github.com/dsamuelson?tab=repositories
+
+## License
+
+Link: https://choosealicense.com/licenses/unlicense/
+
+License Terms:
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <https://unlicense.org>
+    
