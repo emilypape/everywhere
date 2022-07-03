@@ -5,11 +5,13 @@ const FavoriteSchema = new Schema ({
         type: String,
         required: true
     },
-    title: {
-        type: String,
-        required: true
+    favoriteTitle: {
+        type: String
     },
-    cost: {
+    favoritePhoto: {
+        type: String
+    },
+    favoritePrice: {
         type: String
     }
 })

@@ -1,7 +1,22 @@
 import React from 'react';
 import { Checkbox } from '@material-tailwind/react';
 
-function Amenities() {
+function Amenities({ amenities, setAmenities }) {
+  const hasAmenity = (amenity) => {
+    return amenities.includes(amenity);
+  };
+
+  const toggleAmenity = (amenity) => {
+    if (hasAmenity(amenity)) {
+      setAmenities(
+        amenities.filter((a) => {
+          return a !== amenity;
+        }),
+      );
+    } else {
+      setAmenities([...amenities, amenity]);
+    }
+  };
   return (
     <div>
       <h1 className='text-3xl font-semibold  mt-5 mb-3'>Amenities</h1>
@@ -9,7 +24,12 @@ function Amenities() {
         <div className='flex flex-col'>
           <div className='flex'>
             <div>
-              <Checkbox className='p-3' color='pink' />
+              <Checkbox
+                onClick={() => toggleAmenity('Wifi')}
+                checked={hasAmenity('Wifi')}
+                className='p-3'
+                color='pink'
+              />
             </div>
             <div className='py-2'>
               <h1 className=''>Wifi</h1>
